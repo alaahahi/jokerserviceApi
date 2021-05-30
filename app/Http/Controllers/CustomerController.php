@@ -673,18 +673,18 @@ class CustomerController extends Controller
         return response()->json($category);
         
     }
-    public function categories_companies(Request $request ,$categoryId ,$lang)
+    public function categories_sub_categories(Request $request ,$categoryId ,$lang)
     { 
-        $categories_companies = 
+        $categories_sub_categories = 
         DB::table('category')
-        ->join('company', 'company.categoryId', '=', 'category.id')
-        ->join('company_translation', 'company_translation.companyId', '=', 'company.id')
-        ->where('company.visible', '=', '1' )
+        ->join('sub_category', 'sub_category.category_id', '=', 'category.id')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('sub_category.visible', '=', '1' )
         ->where('category.id', '=', $categoryId )
-        ->where('company_translation.lang', '=', $lang )
+        ->where('sub_category_translation.lang', '=', $lang )
         ->select('*')
         ->get();
-        return response()->json($categories_companies);
+        return response()->json($categories_sub_categories);
         
     }
     public function companies_products(Request $request ,$companyId ,$lang)
