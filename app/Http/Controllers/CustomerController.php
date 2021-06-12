@@ -946,4 +946,18 @@ class CustomerController extends Controller
         return response()->json('Added user info');
         
     }
+    public function employee_info(Request $request,$moblie)
+    { 
+        $employeeId = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->select('id')->first();
+        if(!empty($employeeId))
+        {
+            $user_info = DB::table('employee')
+            ->where('employee.id', '=', $employeeId->id )
+            ->first();
+            return response()->json($user_info);
+        }else
+        return response()->json('User Not Found');
+        
+    }
 }
