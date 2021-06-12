@@ -939,8 +939,7 @@ class CustomerController extends Controller
         {
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
-            ->update(['name' => '1']);
-            return response()->json($user_info);
+            ->update(['name' => $request->name]);
             return response()->json('Update user info');
         }else
         $employeeId= DB::table('employee')->insert(array('phone' => $moblie,'name'=>$request->name));
