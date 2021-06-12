@@ -931,4 +931,20 @@ class CustomerController extends Controller
         }
         
     }
+    public function add_employee_info(Request $request,$moblie)
+    { 
+        $employeeId = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->select('id')->first();
+        if(!empty($employeeId))
+        {
+            $user_info = DB::table('employee')
+            ->where('employee.id', '=', $employeeId->id )
+            ->update(['name' => '1']);
+            return response()->json($user_info);
+            return response()->json('Update user info');
+        }else
+        $employeeId= DB::table('employee')->insert(array('phone' => $moblie,'name'=>$request->name));
+        return response()->json('Added user info');
+        
+    }
 }
