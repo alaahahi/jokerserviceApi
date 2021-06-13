@@ -931,6 +931,21 @@ class CustomerController extends Controller
         }
         
     }
+    public function add_client_info(Request $request,$moblie)
+    { 
+        $clientId = DB::table('client')
+        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        if(!empty($clientId))
+        {
+            $user_info = DB::table('client')
+            ->where('client.id', '=', $clientId->id )
+            ->update(['full_name' => $request->name]);
+            return response()->json('Update client info');
+        }else
+        DB::table('client')->insert(array('moblie' => $moblie,'full_name'=>$request->name));
+        return response()->json('Added user info');
+        
+    }
     public function add_employee_info(Request $request,$moblie)
     { 
         $employeeId = DB::table('employee')
@@ -939,10 +954,15 @@ class CustomerController extends Controller
         {
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
-            ->update(['name' => $request->name]);
+            ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience]);
             return response()->json('Update user info');
-        }else
-        $employeeId= DB::table('employee')->insert(array('phone' => $moblie,'name'=>$request->name));
+        }
+        else
+        DB::table('employee')
+            ->where('employee.id', '=',DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
+            ,'sex'=>$request->sex)) )
+            ->update(['experience'=>$request->experience]);
+
         return response()->json('Added user info');
         
     }
@@ -950,6 +970,15 @@ class CustomerController extends Controller
     { 
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
+        $clientId = DB::table('client')
+        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        if(!empty($clientId))
+        {
+            $user_info = DB::table('client')
+            ->where('client.id', '=', $clientId->id )
+            ->first();
+            return response()->json($user_info);
+        }
         if(!empty($employeeId))
         {
             $user_info = DB::table('employee')
