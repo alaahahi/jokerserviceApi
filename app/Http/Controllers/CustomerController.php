@@ -960,7 +960,7 @@ class CustomerController extends Controller
         else
         DB::table('employee')
             ->where('employee.id', '=',DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
-            ,'sex'=>$request->sex)) )
+            ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages)) )
             ->update(['experience'=>$request->experience]);
 
         return response()->json('Added user info');

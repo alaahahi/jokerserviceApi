@@ -3,3 +3,7 @@
 .env
 storage/framework/sessions/
 storage/framework/sessions/
+storage/logs/laravel.log
+storage/framework/views/
+storage/framework/cache/
+storage/logs/
