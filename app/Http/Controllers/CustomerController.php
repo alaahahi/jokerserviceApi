@@ -687,18 +687,14 @@ class CustomerController extends Controller
         return response()->json($categories_sub_categories);
         
     }
-    public function companies_products(Request $request ,$companyId ,$lang)
+    public function sub_categories_employee(Request $request ,$subCategoriesId)
     { 
-        $companies_products = 
-        DB::table('company')
-        ->join('product', 'product.companyId', '=', 'company.id')
-        ->join('product_translation', 'product_translation.productId', '=', 'product.id')
-        ->where('company.id', '=', $companyId )
-        ->where('product.visible', '=', '1' )
-        ->where('product_translation.lang', '=', $lang )
+        $sub_categories_employee = 
+        DB::table('employee')
+        ->orWhere('experience', 'like', '%' ."'".$subCategoriesId."'". '%')
         ->select('*')
         ->get();
-        return response()->json($companies_products);
+        return response()->json($sub_categories_employee);
     }
     public function home(Request $request ,$lang)
     { 

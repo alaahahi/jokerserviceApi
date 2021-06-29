@@ -40,7 +40,7 @@ Route::get('companies/{ids?}/{lang?}', [CustomerController::class, 'companies'])
 Route::get('search/{q?}/{lang?}', [CustomerController::class, 'search']);
 Route::get('categories/{lang?}', [CustomerController::class, 'categories']);
 Route::get('categories/{categoryId?}/sub_categories/{lang?}', [CustomerController::class, 'categories_sub_categories']);
-Route::get('companies/{companyId?}/products/{lang?}', [CustomerController::class, 'companies_products']);
+Route::get('sub_categories_employee/{subCategoriesId?}', [CustomerController::class, 'sub_categories_employee']);
 Route::get('home/{lang?}', [CustomerController::class, 'home']);
 Route::get('user_point/{moblie?}', [CustomerController::class, 'user_point']);
 Route::post('orders/{moblie?}', [CustomerController::class, 'orders']);
@@ -49,6 +49,7 @@ Route::get('getusercompany/{moblie?}', [CustomerController::class, 'getusercompa
 Route::post('productcompany/{moblie?}', [CustomerController::class, 'productcompany']);
 Route::get('gift/{lang?}', [CustomerController::class, 'gift']);
 Route::get('winner/{lang?}', [CustomerController::class, 'winner']);
+
 Route::get('user_info/{moblie?}', [CustomerController::class, 'user_info']);
 Route::post('edit_user_info/{moblie?}', [CustomerController::class, 'edit_user_info']);
 
