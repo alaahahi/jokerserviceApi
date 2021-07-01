@@ -98,19 +98,36 @@ class CustomerController extends Controller
     }
     public function add_employee_info(Request $request,$moblie)
     { 
+        $date = date('Y-m-d h:i');
+        $monthName = date('mm');
+        $year = date('Y');
+
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
+        $request->validate([
+            'file' => 'image|mimes:jpeg,png,jpg|max:2048',
+          ]);
+          if ($request->file('file')) {
+            $imagePath = $request->file('file');
+            $imageName = time().'.'.$request->file->extension();
+            //$imageName = $imagePath->getClientOriginalName();
+            $path = $request->file('file')->storeAs('product/'.$monthName.$year, $imageName, 'public');
+        }
         if(!empty($employeeId))
         {
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
-            ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience]);
+            ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$request->years_experience,'languages'=>$request->languages
+        ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
         else
         DB::table('employee')
             ->where('employee.id', '=',DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
-            ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages)) )
+            ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName
+            )) )
             ->update(['experience'=>$request->experience]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
