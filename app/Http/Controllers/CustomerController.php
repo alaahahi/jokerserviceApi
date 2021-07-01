@@ -134,6 +134,6 @@ class CustomerController extends Controller
             ->first();
             return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee','data' => $user_info,])->setStatusCode(200);
         }else
-        return response()->json(['status'=>true,'code'=>200,'message'=>'User Not Found'])->setStatusCode(200);    
+        return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
     }
 }
