@@ -44,7 +44,7 @@ class CustomerController extends Controller
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*')
         ->get();
-        return response()->json($categories_sub_categories)->setStatusCode(200);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $categories_sub_categories,])->setStatusCode(200);
         
     }
     public function sub_categories_employee(Request $request ,$subCategoriesId)
@@ -54,7 +54,7 @@ class CustomerController extends Controller
         ->orWhere('experience', 'like', '%' ."'".$subCategoriesId."'". '%')
         ->select('*')
         ->get();
-        return response()->json($sub_categories_employee)->setStatusCode(200);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $sub_categories_employee,])->setStatusCode(200);
     }
     public function user_info($moblie)
     { 
@@ -90,10 +90,10 @@ class CustomerController extends Controller
             $user_info = DB::table('client')
             ->where('client.id', '=', $clientId->id )
             ->update(['full_name' => $request->name]);
-            return response()->json('Update client info')->setStatusCode(200);
+            return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
         DB::table('client')->insert(array('moblie' => $moblie,'full_name'=>$request->name));
-        return response()->json('Added user info')->setStatusCode(201);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'Added user info'])->setStatusCode(201);
         
     }
     public function add_employee_info(Request $request,$moblie)
@@ -105,16 +105,14 @@ class CustomerController extends Controller
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience]);
-            return response()->json('Update user info')->setStatusCode(200);
+            return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
         else
         DB::table('employee')
             ->where('employee.id', '=',DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
             ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages)) )
             ->update(['experience'=>$request->experience]);
-
-        return response()->json('Added user info')->setStatusCode(201);
-        
+            return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
     public function employee_info(Request $request,$moblie)
     { 
@@ -127,16 +125,15 @@ class CustomerController extends Controller
             $user_info = DB::table('client')
             ->where('client.id', '=', $clientId->id )
             ->first();
-            return response()->json($user_info)->setStatusCode(200);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully client','data' => $user_info,])->setStatusCode(200);
         }
         if(!empty($employeeId))
         {
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->first();
-            return response()->json($user_info);
+            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee','data' => $user_info,])->setStatusCode(200);
         }else
-        return response()->json('User Not Found')->setStatusCode(201);
-        
+        return response()->json(['status'=>true,'code'=>200,'message'=>'User Not Found'])->setStatusCode(200);    
     }
 }
