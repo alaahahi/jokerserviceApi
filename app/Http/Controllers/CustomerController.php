@@ -163,7 +163,7 @@ class CustomerController extends Controller
         if(!empty($employeeId) && !empty($clientId))
         {
         
-            DB::table('order')->insertGetId(array('client_id' =>$clientId->id,'employee_id'=>  $employeeId->id,'subcategory_id'=>$sub_categories_id
+            DB::table('order')->insertGetId(array('client_id' =>$clientId,'employee_id'=>  $employeeId,'subcategory_id'=>$sub_categories_id
             ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
             ,'date'=>$request->date,'details'=>$request->details
             ));
