@@ -145,16 +145,11 @@ class CustomerController extends Controller
         }else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
     }
-    public function add_order(Request $request,$moblie_client,$sub_categories_id,$moblie_employee)
+    public function add_order(Request $request,$clientId,$sub_categories_id,$employeeId)
     { 
         //$date = date('Y-m-d h:i');
         $monthName = date('F');
         $year = date('Y');
-        $employeeId = DB::table('employee')
-        ->where('employee.phone', '=', $moblie_employee )->select('id')->first();
-        $clientId = DB::table('client')
-        ->where('client.moblie', '=', $moblie_client)->select('id')->first();
-
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
