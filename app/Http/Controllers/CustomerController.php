@@ -171,4 +171,38 @@ class CustomerController extends Controller
         }
             return response()->json(['status'=>false,'code'=>400,'message'=>'Not Found'])->setStatusCode(400);    
     }
+    public function get_order_client(Request $request ,$clientId ,$lang)
+    { 
+        $order_client = 
+        DB::table('order')
+        ->join('sub_category', 'sub_category.id', '=', 'order.subcategory_id')
+        ->join('client', 'client.id', '=', 'order.client_id')
+        ->join('employee', 'employee.id', '=', 'order.employee_id')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('order.client_id', '=', $clientId )
+        ->where('sub_category_translation.lang', '=', $lang )
+        ->select('*')
+        ->get();
+        if(!empty($order_client->first()) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No Order Found'])->setStatusCode(400);
+    }
+    public function get_order_employee(Request $request ,$employeeId ,$lang)
+    { 
+        $order_employee = 
+        DB::table('order')
+        ->join('sub_category', 'sub_category.id', '=', 'order.subcategory_id')
+        ->join('client', 'client.id', '=', 'order.client_id')
+        ->join('employee', 'employee.id', '=', 'order.employee_id')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('order.employee_id', '=', $employeeId )
+        ->where('sub_category_translation.lang', '=', $lang )
+        ->select('*')
+        ->get();
+        if(!empty($order_employee->first()) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_employee,])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No Order Found'])->setStatusCode(400);
+    }
 }
