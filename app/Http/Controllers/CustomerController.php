@@ -87,6 +87,7 @@ class CustomerController extends Controller
     }
     public function add_employee_info(Request $request,$moblie)
     { 
+        $imageName ="default.png";
         $date = date('Y-m-d h:i');
         $monthName = date('F');
         $year = date('Y');
