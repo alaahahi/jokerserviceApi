@@ -29,34 +29,12 @@ Orion::resource('card', CardController::class);
 Orion::resource('cardType', CardTypeController::class);
 Orion::morphToManyResource('posts', 'comments', UsersController::class);
 //mobile
-Route::get('check_card/{moblie?}', [CustomerController::class, 'check_card']);
-Route::get('charge_card/{cardNumber?}/{moblie?}', [CustomerController::class, 'charge_card']);
-Route::get('getallcart/{moblie?}/{lang?}', [CustomerController::class, 'getallcart']);
-Route::post('addtocart/{moblie?}', [CustomerController::class, 'addtocart']);
-Route::delete('removfromcart/{moblie?}/{id?}', [CustomerController::class, 'removfromcart']);
-Route::delete('removallcart/{moblie?}', [CustomerController::class, 'removallcart']);
-Route::get('products/{ids?}/{lang?}', [CustomerController::class, 'products']);
-Route::get('companies/{ids?}/{lang?}', [CustomerController::class, 'companies']);
-Route::get('search/{q?}/{lang?}', [CustomerController::class, 'search']);
-Route::get('categories/{lang?}', [CustomerController::class, 'categories']);
+
+
 Route::get('categories/{categoryId?}/sub_categories/{lang?}', [CustomerController::class, 'categories_sub_categories']);
 Route::get('sub_categories_employee/{subCategoriesId?}', [CustomerController::class, 'sub_categories_employee']);
-Route::get('home/{lang?}', [CustomerController::class, 'home']);
-Route::get('user_point/{moblie?}', [CustomerController::class, 'user_point']);
-Route::post('orders/{moblie?}', [CustomerController::class, 'orders']);
-Route::get('getorders/{moblie?}/{lang?}', [CustomerController::class, 'getorders']);
-Route::get('getusercompany/{moblie?}', [CustomerController::class, 'getusercompany']);
-Route::post('productcompany/{moblie?}', [CustomerController::class, 'productcompany']);
-Route::get('gift/{lang?}', [CustomerController::class, 'gift']);
-Route::get('winner/{lang?}', [CustomerController::class, 'winner']);
-
-Route::get('user_info/{moblie?}', [CustomerController::class, 'user_info']);
-Route::post('edit_user_info/{moblie?}', [CustomerController::class, 'edit_user_info']);
-
+Route::get('categories/{lang?}', [CustomerController::class, 'categories']);
 Route::post('add_employee_info/{moblie?}', [CustomerController::class, 'add_employee_info']);
 Route::get('employee_info/{moblie?}', [CustomerController::class, 'employee_info']);
-
-
 Route::post('add_client_info/{moblie?}', [CustomerController::class, 'add_client_info']);
-
-
+Route::post('add_order/{moblie_client?}/{sub_categories_id?}/{moblie_employee?}', [CustomerController::class, 'add_order']);

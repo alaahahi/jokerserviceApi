@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -11,16 +9,7 @@ use PDF;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function categories(Request $request ,$lang)
     { 
         $category = 
@@ -147,8 +136,43 @@ class CustomerController extends Controller
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->first();
-            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee','data' => $user_info,])->setStatusCode(200);
+            if( $user_info->is_active == 0){
+                return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee is pending','data' => $user_info,])->setStatusCode(200);
+            }
+            if($user_info->is_active == 1)
+            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee  is actiive','data' => $user_info,])->setStatusCode(200);
         }else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
+    }
+    public function add_order(Request $request,$moblie_client,$sub_categories_id,$moblie_employee)
+    { 
+        //$date = date('Y-m-d h:i');
+        $monthName = date('F');
+        $year = date('Y');
+        $employeeId = DB::table('employee')
+        ->where('employee.phone', '=', $moblie_employee )->select('id')->first();
+        $clientId = DB::table('client')
+        ->where('client.moblie', '=', $moblie_client)->select('id')->first();
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+
+          if ($request->file('image')) {
+            $imagePath = $request->file('image');
+            $imageName = time().'.'.$request->image->extension();
+            //$imageName = $imagePath->getClientOriginalName();
+            $path = $request->file('image')->storeAs('order/'.$monthName.$year, $imageName, 'public');
+        }
+        if(!empty($employeeId) && !empty($clientId))
+        {
+        
+            DB::table('order')->insertGetId(array('client_id' =>$clientId->id,'employee_id'=>  $employeeId->id,'subcategory_id'=>$sub_categories_id
+            ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
+            ,'date'=>$request->date,'details'=>$request->details
+            ));
+            return response()->json(['status'=>true,'code'=>200,'message'=>'Added order info'])->setStatusCode(201);        
+        }
+            return response()->json(['status'=>false,'code'=>400,'message'=>'Not Found'])->setStatusCode(400);    
     }
 }
