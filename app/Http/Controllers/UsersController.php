@@ -16,14 +16,13 @@ class UsersController extends Controller
     public function employees_accept(Request $request)
     { 
         $data = DB::table('employee')
-        ->where('deleted_at', '=',  null )
         ->select("*")
         ->get();
         //return response()->json($data);
         if ($request->ajax()) 
         {
          return Datatables::of($data)->make(true);
-      }
+        }
         return view('employees_accept',compact('data'));
     }
 }

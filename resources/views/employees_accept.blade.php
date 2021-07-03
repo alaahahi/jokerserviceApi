@@ -10,30 +10,26 @@
 <div class="col-md-4">
 <div class="card" style="border-radius:15px">
 <div class="card-header text-center" style="padding: 3%;">
-Customer Mobile: {{ $customer->user_phone }}
+Employees Mobile: {{ $customer->phone }}
 </div>
-@foreach ($customer->product as $products)
-<div style="border-radius: 5px;margin: 3%;border: 1px solid #eee;">
-<img  class="img-circle" src="http://savingapp.co/AdminCp/storage/app/public/{{ $products->photo }}" alt="Avatar" style="height:100px;width:100px;float: left;padding: 2%;" >
-<p>Product : {{ $products->title_translation }}</p>
-<p>Price : {{ $products->discount_price }}</p>
-<p>Quantity : {{$products->pivot->quantity}}</p>
-</div>
-@endforeach
   <div class="container">
-    <h4><b>Total : {{ $customer->order_total }}</b></h4>
+    <h4><b>Name : {{ $customer->name }}</b></h4>
+    <h5><b>Birthdate : {{ $customer->birthdate }}</b></h5>
+    <h5><b>Experience : {{ $customer->experience }}</b></h5>
+    <h5><b>Sex : {{ $customer->sex }}</b></h5>
+    <h5><b>Years Experience : {{ $customer->years_experience }}</b></h5>
     <p>Date : {{$customer->created_at}}</p>
-    <p>Accepted : {{ $customer->is_accepted }}</p>
+    <p>Accepted : {{ $customer->is_active }}</p>
     <div class="card-footer text-center">
           <div class="btn-wrapper  justify-content-between">
-          @if ($customer->is_accepted==0)
+          @if ($customer->is_active==0)
           <a href="javascript:void(0)" data-toggle="tooltip"    data-id="{{$customer->id}}"  class="btn btn-danger rejection">Rejection</a>
           <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}" class="btn btn-warning approval">Approval</a>
           @endif
-          @if ($customer->is_accepted==1)
+          @if ($customer->is_active==1)
           <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Compleated</a>
           @endif
-          @if ($customer->is_accepted==2)
+          @if ($customer->is_active==2)
           <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-danger">Rejected</a>
           @endif
           </div>

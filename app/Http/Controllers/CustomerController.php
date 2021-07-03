@@ -107,14 +107,14 @@ class CustomerController extends Controller
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience
-            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$request->years_experience,'languages'=>$request->languages
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$request->years_experience,'languages'=>$request->languages,'id_number'=>$request->id_number
         ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
         else
             DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
             ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages
-            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience,'id_number'=>$request->id_number
             ));
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
