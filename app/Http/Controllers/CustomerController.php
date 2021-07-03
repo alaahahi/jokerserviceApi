@@ -217,4 +217,16 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
     }
+    public function client_order_finish(Request $request ,$orderId)
+    { 
+        $date = date('Y-m-d h:i');
+        $client_order_accept = 
+        DB::table('order')
+        ->where('order.id', '=', $orderId )
+        ->update(['finish_date' => $date]);
+        if(!empty($client_order_accept) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully finish order'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order finish'])->setStatusCode(400);
+    }
 }
