@@ -2,17 +2,28 @@
 
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Users;
-use Orion\Http\Controllers\RelationController;
-use Orion\Concerns\DisableAuthorization;
-use Orion\Concerns\DisablePagination;
 
-class UsersController extends RelationController
+
+class UsersController extends Controller
 {
-    use DisablePagination;
-    use DisableAuthorization;
-    protected $model = Users::class; // or "App\Models\Post"
-    protected $relation = 'user_company';
+    public function employees_accept(Request $request)
+    { 
+        $data = DB::table('employee')
+        ->where('deleted_at', '=',  null )
+        ->select("*")
+        ->get();
+        //return response()->json($data);
+        if ($request->ajax()) 
+        {
+         return Datatables::of($data)->make(true);
+      }
+        return view('employees_accept',compact('data'));
+    }
 }

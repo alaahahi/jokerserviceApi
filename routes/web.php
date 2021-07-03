@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,11 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+    Voyager ::routes();
 
 });
 
+Route::get('employees_accept', [UsersController::class, 'employees_accept'])->name('employees_accept');
 Route::get('admin/my_company', [CustomerController::class, 'my_company']);
 Route::get('admin/my_orders', [CustomerController::class, 'my_orders']);
 Route::get('admin/my_products', [CustomerController::class, 'my_products'])->name('admin.my_products');;
