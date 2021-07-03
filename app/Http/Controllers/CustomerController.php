@@ -207,10 +207,11 @@ class CustomerController extends Controller
     }
     public function employee_order_accept(Request $request ,$orderId)
     { 
+        $date = date('Y-m-d h:i');
         $employee_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
-        ->update(['is_accepted' => 1]);
+        ->update(['is_accepted' => 1,'accepted_date' => $date]);
         if(!empty($employee_order_accept) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
         else
