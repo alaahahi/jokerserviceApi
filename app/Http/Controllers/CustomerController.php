@@ -205,4 +205,15 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No Order Found'])->setStatusCode(400);
     }
+    public function employee_order_accept(Request $request ,$orderId)
+    { 
+        $employee_order_accept = 
+        DB::table('order')
+        ->where('order.id', '=', $orderId )
+        ->update(['is_accepted' => 1]);
+        if(!empty($employee_order_accept) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
+    }
 }
