@@ -151,7 +151,7 @@ class CustomerController extends Controller
         $monthName = date('F');
         $year = date('Y');
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
 
           if ($request->file('image')) {

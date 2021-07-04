@@ -29,8 +29,8 @@ Employees Mobile: {{ $customer->phone }}
           @if ($customer->is_active==1)
           <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Compleated</a>
           @endif
-          @if ($customer->is_active==2)
-          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-danger">Rejected</a>
+          @if ($customer->is_blocked==1)
+          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-danger">Un Block</a>
           @endif
           </div>
     </div>
@@ -49,9 +49,7 @@ Employees Mobile: {{ $customer->phone }}
   $('body').on('click', '.approval', function () {
       $(this).attr('disabled', true);      
       var Item_id = $(this).data('id');
-      debugger;
-    
-      $.get("{{ route('admin.approval') }}/"+Item_id ).done(function() {
+      $.get("{{ route('approval_employee') }}/"+Item_id ).done(function() {
         $('#'+Item_id).attr('disabled', false); 
         $('#'+Item_id).css("background-color", "#2ecc71").text("Done Approval");
 });
@@ -59,9 +57,7 @@ Employees Mobile: {{ $customer->phone }}
    $('body').on('click', '.rejection', function () {
       $(this).attr('disabled', true);      
       var Item_id = $(this).data('id');
-      debugger;
-    
-      $.get("{{ route('admin.rejection') }}/"+Item_id ).done(function() {
+      $.get("{{ route('block_employee') }}/"+Item_id ).done(function() {
         $('#'+Item_id).attr('disabled', false); 
         $('#'+Item_id).css("background-color", "#2ecc71").text("Done Rejection");
 });

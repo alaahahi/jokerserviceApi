@@ -24,10 +24,13 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('employees_accept', [UsersController::class, 'employees_accept'])->name('employees_accept');
+Route::get('approval_employee/{employee_id?}', [UsersController::class, 'approval_employee'])->name('approval_employee');
+Route::get('block_employee/{employee_id?}', [UsersController::class, 'block_employee'])->name('block_employee');
+
 Route::get('admin/my_company', [CustomerController::class, 'my_company']);
 Route::get('admin/my_orders', [CustomerController::class, 'my_orders']);
 Route::get('admin/my_products', [CustomerController::class, 'my_products'])->name('admin.my_products');;
-Route::get('admin/approval/{id?}', [CustomerController::class, 'approval'])->name('admin.approval');
+
 Route::get('admin/rejection/{id?}', [CustomerController::class, 'rejection'])->name('admin.rejection');
 Route::get('admin/edit_product/{id?}', [CustomerController::class, 'edit_product'])->name('admin.edit_product');
 Route::put('admin/edit_products/{id?}', [CustomerController::class, 'edit_products'])->name('admin.edit_products');
