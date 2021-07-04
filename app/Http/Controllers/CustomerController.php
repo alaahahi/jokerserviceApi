@@ -156,9 +156,17 @@ class CustomerController extends Controller
             ->whereIn('sub_category.id', $array )
             ->where('sub_category_translation.lang', '=',$lang)
             ->get();
+            $categories = DB::table('sub_category')
+            ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+            ->whereIn('sub_category.id', $array )
+            ->where('sub_category_translation.lang', '=',$lang)
+            ->select('sub_category.category_id')->groupBy('category_id')
+            ->get();
+            //return response()->json(json_decode(json_encode($categories), true));
             $employees = Employee::Where('id',  $employeeId->id)->get();
             foreach ($employees as $employee ){
             $employee->setAttribute('experience',$user_info );
+            $employee->setAttribute('categories',$categories );
             }
 
             if($employees[0]->is_active == 0){
