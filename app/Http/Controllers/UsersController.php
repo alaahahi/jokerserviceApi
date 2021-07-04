@@ -49,4 +49,16 @@ class UsersController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
     }
+    public function un_block_employee(Request $request,$employee_id)
+    { 
+        $date = date('Y-m-d h:i');
+        $un_block_employee = 
+        DB::table('employee')
+        ->where('employee.id', '=', $employee_id )
+        ->update(['updated_at' => $date,'is_blocked'=>0,'is_active'=>1]);
+        if(!empty($un_block_employee) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
+    }
 }

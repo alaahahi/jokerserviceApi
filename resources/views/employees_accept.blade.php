@@ -30,7 +30,7 @@ Employees Mobile: {{ $customer->phone }}
           <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Compleated</a>
           @endif
           @if ($customer->is_blocked==1)
-          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-danger">Un Block</a>
+          <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}"   class="btn btn-danger un_block">Un Block</a>
           @endif
           </div>
     </div>
@@ -60,6 +60,14 @@ Employees Mobile: {{ $customer->phone }}
       $.get("{{ route('block_employee') }}/"+Item_id ).done(function() {
         $('#'+Item_id).attr('disabled', false); 
         $('#'+Item_id).css("background-color", "#2ecc71").text("Done Rejection");
+});
+   });
+   $('body').on('click', '.un_block', function () {
+      $(this).attr('disabled', true);      
+      var Item_id = $(this).data('id');
+      $.get("{{ route('un_block_employee') }}/"+Item_id ).done(function() {
+        $('#'+Item_id).attr('disabled', false); 
+        $('#'+Item_id).css("background-color", "#2ecc71").text("Done"); 
 });
    });
 </script>
