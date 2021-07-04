@@ -74,7 +74,7 @@ class CustomerController extends Controller
     public function add_client_info(Request $request,$moblie)
     { 
         $clientId = DB::table('client')
-        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        ->where('client.phone', '=', $moblie )->select('id')->first();
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
         if(!empty($employeeId))
@@ -85,17 +85,17 @@ class CustomerController extends Controller
         {
             DB::table('client')
             ->where('client.id', '=', $clientId->id )
-            ->update(['full_name' => $request->name]);
+            ->update(['name' => $request->name]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
-        DB::table('client')->insert(array('moblie' => $moblie,'full_name'=>$request->name));
+        DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name));
         return response()->json(['status'=>true,'code'=>200,'message'=>'Added user info'])->setStatusCode(201);
         
     }
     public function add_employee_info(Request $request,$moblie)
     { 
         $clientId = DB::table('client')
-        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        ->where('client.phone', '=', $moblie )->select('id')->first();
         if(!empty($clientId))
         {
             return response()->json(['status'=>false,'code'=>400,'message'=>'This Mobile Number is Used'])->setStatusCode(201);
@@ -137,7 +137,7 @@ class CustomerController extends Controller
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
         $clientId = DB::table('client')
-        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        ->where('client.phone', '=', $moblie )->select('id')->first();
         if(!empty($clientId))
         {
             $user_info = DB::table('client')
