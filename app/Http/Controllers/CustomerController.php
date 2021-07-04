@@ -73,6 +73,7 @@ class CustomerController extends Controller
     }
     public function add_client_info(Request $request,$moblie)
     { 
+        $date = date('Y-m-d h:i');
         $clientId = DB::table('client')
         ->where('client.phone', '=', $moblie )->select('id')->first();
         $employeeId = DB::table('employee')
@@ -85,10 +86,10 @@ class CustomerController extends Controller
         {
             DB::table('client')
             ->where('client.id', '=', $clientId->id )
-            ->update(['name' => $request->name]);
+            ->update(['name' => $request->name,'updated_at'=> $date]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
-        DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name));
+        DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name,'created_at'=> $date));
         return response()->json(['status'=>true,'code'=>200,'message'=>'Added user info'])->setStatusCode(201);
         
     }
