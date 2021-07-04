@@ -20,7 +20,7 @@ Route::get('categories/{categoryId?}/sub_categories/{lang?}', [CustomerControlle
 Route::get('sub_categories_employee/{subCategoriesId?}', [CustomerController::class, 'sub_categories_employee']);
 Route::get('categories/{lang?}', [CustomerController::class, 'categories']);
 Route::post('add_employee_info/{moblie?}', [CustomerController::class, 'add_employee_info']);
-Route::get('employee_info/{moblie?}', [CustomerController::class, 'employee_info']);
+Route::get('employee_info/{moblie?}/{lang?}', [CustomerController::class, 'employee_info']);
 Route::post('add_client_info/{moblie?}', [CustomerController::class, 'add_client_info']);
 Route::post('add_order/{clientId?}/{sub_categories_id?}/{employeeId?}', [CustomerController::class, 'add_order']);
 Route::get('get_order_client/{clientId?}/{lang?}', [CustomerController::class, 'get_order_client']);
