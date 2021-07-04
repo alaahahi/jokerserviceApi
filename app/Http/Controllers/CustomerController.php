@@ -118,10 +118,20 @@ class CustomerController extends Controller
         }
         if(!empty($employeeId))
         {
+            $employee = DB::table('employee')
+            ->where('employee.id', '=', $employeeId->id )->first();
+            (!empty($request->name)) ?  $name = $request->name : $name = $employee->name;
+            (!empty($request->birthdate)) ?  $birthdate = $request->birthdate : $birthdate = $employee->birthdate;
+            (!empty($request->sex)) ?  $sex = $request->sex : $sex = $employee->sex;
+            (!empty($request->experience)) ?  $experience = $request->experience : $experience = $employee->experience;
+            (!empty($request->years_experience)) ?  $years_experience = $request->years_experience : $years_experience = $employee->years_experience;
+            (!empty($request->languages)) ?  $languages = $request->languages : $languages = $employee->languages;
+            (!empty($request->id_number)) ?  $id_number = $request->id_number : $id_number = $employee->id_number;
+            //return response()->json( $name );
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
-            ->update(['name' => $request->name,'birthdate'=>$request->birthdate,'sex'=>$request->sex,'experience'=>$request->experience
-            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$request->years_experience,'languages'=>$request->languages,'id_number'=>$request->id_number
+            ->update(['name' => $name,'birthdate'=>$birthdate,'sex'=>$sex,'experience'=>$experience 
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$years_experience,'languages'=>$languages ,'id_number'=>$id_number
         ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
