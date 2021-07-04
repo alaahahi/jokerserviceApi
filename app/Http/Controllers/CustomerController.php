@@ -75,9 +75,15 @@ class CustomerController extends Controller
     { 
         $clientId = DB::table('client')
         ->where('client.moblie', '=', $moblie )->select('id')->first();
+        $employeeId = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->select('id')->first();
+        if(!empty($employeeId))
+        {
+            return response()->json(['status'=>false,'code'=>400,'message'=>'This Mobile Number is Used'])->setStatusCode(400);
+        }
         if(!empty($clientId))
         {
-            $user_info = DB::table('client')
+            DB::table('client')
             ->where('client.id', '=', $clientId->id )
             ->update(['full_name' => $request->name]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
@@ -88,6 +94,12 @@ class CustomerController extends Controller
     }
     public function add_employee_info(Request $request,$moblie)
     { 
+        $clientId = DB::table('client')
+        ->where('client.moblie', '=', $moblie )->select('id')->first();
+        if(!empty($clientId))
+        {
+            return response()->json(['status'=>false,'code'=>400,'message'=>'This Mobile Number is Used'])->setStatusCode(201);
+        }
         $imageName ="default.png";
         $date = date('Y-m-d h:i');
         $monthName = date('F');
