@@ -84,6 +84,9 @@ class CustomerController extends Controller
         }
         if(!empty($clientId))
         {
+            $client = DB::table('client')
+            ->where('client.id', '=', $clientId->id )->first();
+            (!empty($request->name)) ?  $name = $request->name : $name = $client->name;
             DB::table('client')
             ->where('client.id', '=', $clientId->id )
             ->update(['name' => $request->name,'updated_at'=> $date]);
