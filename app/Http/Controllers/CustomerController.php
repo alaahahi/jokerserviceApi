@@ -89,7 +89,7 @@ class CustomerController extends Controller
             (!empty($request->name)) ?  $name = $request->name : $name = $client->name;
             DB::table('client')
             ->where('client.id', '=', $clientId->id )
-            ->update(['name' => $request->name,'updated_at'=> $date]);
+            ->update(['name' =>  $name,'updated_at'=> $date]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
         DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name,'created_at'=> $date));
