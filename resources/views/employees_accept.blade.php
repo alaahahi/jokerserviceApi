@@ -28,7 +28,7 @@ Employees Mobile: {{ $customer->phone }}
           <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}" class="btn btn-warning approval">Approval</a>
           @endif
           @if ($customer->is_active==1)
-          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Compleated</a>
+          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Accepted </a>
           @endif
           @if ($customer->is_blocked==1)
           <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}"   class="btn btn-danger un_block">Un Block</a>
