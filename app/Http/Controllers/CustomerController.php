@@ -147,6 +147,7 @@ class CustomerController extends Controller
     }
     public function add_order(Request $request,$clientId,$sub_categories_id,$employeeId)
     { 
+        $imageName ="default.png";
         //$date = date('Y-m-d h:i');
         $monthName = date('F');
         $year = date('Y');

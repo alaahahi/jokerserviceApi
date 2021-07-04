@@ -15,7 +15,7 @@ Employees Mobile: {{ $customer->phone }}
   <div class="container">
     <h4><b>Name : {{ $customer->name }}</b></h4>
     <h5><b>Birthdate : {{ $customer->birthdate }}</b></h5>
- 
+    <h5><b>Experience : {{ $customer->experience }}</b></h5>
     <h5><b>Sex : {{ $customer->sex }}</b></h5>
     <h5><b>ID Card : {{ $customer->id_number }}</b></h5>
     <h5><b>Years Experience : {{ $customer->years_experience }}</b></h5>
