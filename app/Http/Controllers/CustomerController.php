@@ -150,10 +150,10 @@ class CustomerController extends Controller
             }
 
             if($employees[0]->is_active == 0){
-                return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee is pending','data' => $employees,])->setStatusCode(200);
+                return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee is pending','data' => $employees->first(),])->setStatusCode(200);
             }
             if($employees[0]->is_active == 1)
-            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee  is actiive','data' => $employees,])->setStatusCode(200);
+            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee  is actiive','data' => $employees->first(),])->setStatusCode(200);
         }else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
     }
