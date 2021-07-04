@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Yajra\DataTables\DataTables;
+use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -119,7 +120,7 @@ class CustomerController extends Controller
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
 
-    public function employee_info(Request $request,$moblie)
+    public function employee_info(Request $request,$moblie,$lang='en')
     { 
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
@@ -134,14 +135,25 @@ class CustomerController extends Controller
         }
         if(!empty($employeeId))
         {
-            $user_info = DB::table('employee')
+            $user_exper = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
-            ->first();
-            if( $user_info->is_active == 0){
-                return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee is pending','data' => $user_info,])->setStatusCode(200);
+            ->first()->experience;
+            $array = array_filter( explode(",", str_replace("'", "", $user_exper) ));
+            $user_info = DB::table('sub_category')
+            ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+            ->whereIn('sub_category.id', $array )
+            ->where('sub_category_translation.lang', '=',$lang)
+            ->get();
+            $employees = Employee::Where('id',  $employeeId->id)->get();
+            foreach ($employees as $employee ){
+            $employee->setAttribute('experience',$user_info );
             }
-            if($user_info->is_active == 1)
-            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee  is actiive','data' => $user_info,])->setStatusCode(200);
+
+            if($employees[0]->is_active == 0){
+                return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee is pending','data' => $employees,])->setStatusCode(200);
+            }
+            if($employees[0]->is_active == 1)
+            return response()->json(['status'=>true,'code'=>200,'message'=>'successfully employee  is actiive','data' => $employees,])->setStatusCode(200);
         }else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
     }
