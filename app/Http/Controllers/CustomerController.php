@@ -276,4 +276,16 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order finish'])->setStatusCode(400);
     }
+    public function employee_order_reject(Request $request ,$orderId)
+    { 
+        $date = date('Y-m-d h:i');
+        $employee_order_reject = 
+        DB::table('order')
+        ->where('order.id', '=', $orderId )
+        ->update(['is_accepted' => 2,'reject_date' => $date,'reject_note'=> $request->reject_note]);
+        if(!empty($employee_order_reject) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully reject order'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order reject'])->setStatusCode(400);
+    }
 }

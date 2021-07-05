@@ -27,3 +27,4 @@ Route::get('get_order_client/{clientId?}/{lang?}', [CustomerController::class, '
 Route::get('get_order_employee/{employeeId?}/{lang?}', [CustomerController::class, 'get_order_employee']);
 Route::put('employee_order_accept/{orderId?}', [CustomerController::class, 'employee_order_accept']);
 Route::put('client_order_finish/{orderId?}', [CustomerController::class, 'client_order_finish']);
+Route::put('employee_order_reject/{orderId?}', [CustomerController::class, 'employee_order_reject']);
