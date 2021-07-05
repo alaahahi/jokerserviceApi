@@ -283,6 +283,7 @@ class CustomerController extends Controller
         DB::table('order')
         ->where('order.id', '=', $orderId )
         ->update(['is_accepted' => 2,'reject_date' => $date,'reject_note'=> $request->reject_note]);
+        //return response()->json( $request->reject_note);
         if(!empty($employee_order_reject) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully reject order'])->setStatusCode(200);
         else
