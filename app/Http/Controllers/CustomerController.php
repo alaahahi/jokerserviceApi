@@ -228,7 +228,7 @@ class CustomerController extends Controller
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('order.client_id', '=', $clientId )
         ->where('sub_category_translation.lang', '=', $lang )
-        ->select('*')
+        ->select('*','order.id')
         ->get();
         if(!empty($order_client->first()) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
@@ -245,7 +245,7 @@ class CustomerController extends Controller
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('order.employee_id', '=', $employeeId )
         ->where('sub_category_translation.lang', '=', $lang )
-        ->select('*')
+        ->select('*','order.id')
         ->get();
         if(!empty($order_employee->first()) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_employee,])->setStatusCode(200);
