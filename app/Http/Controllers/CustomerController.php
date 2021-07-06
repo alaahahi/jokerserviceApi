@@ -264,7 +264,7 @@ class CustomerController extends Controller
         $client_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
-        ->update(['status' => 2,'finish_date' => $date]);
+        ->update(['status' => 3,'finish_date' => $date,'rate'=> $request->rate]);
         if(!empty($client_order_accept) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully finish order'])->setStatusCode(200);
         else
