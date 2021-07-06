@@ -252,7 +252,7 @@ class CustomerController extends Controller
         $employee_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
-        ->update(['is_accepted' => 1,'accepted_date' => $date]);
+        ->update(['status' => 1,'accepted_date' => $date,'note'=> $request->note]);
         if(!empty($employee_order_accept) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
         else
@@ -264,7 +264,7 @@ class CustomerController extends Controller
         $client_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
-        ->update(['finish_date' => $date]);
+        ->update(['status' => 2,'finish_date' => $date]);
         if(!empty($client_order_accept) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully finish order'])->setStatusCode(200);
         else
@@ -276,7 +276,7 @@ class CustomerController extends Controller
         $employee_order_reject = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
-        ->update(['is_accepted' => 2,'reject_date' => $date,'reject_note'=> $request->reject_note]);
+        ->update(['status' => 2,'reject_date' => $date,'note'=> $request->note]);
         //return response()->json( $request->reject_note);
         if(!empty($employee_order_reject) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully reject order'])->setStatusCode(200);
