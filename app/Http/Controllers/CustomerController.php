@@ -218,7 +218,7 @@ class CustomerController extends Controller
         }
             return response()->json(['status'=>false,'code'=>400,'message'=>'Not Found'])->setStatusCode(400);    
     }
-    public function get_order_client(Request $request ,$clientId ,$status,$lang)
+    public function get_order_client(Request $request ,$clientId ,$lang)
     { 
         $order_client = 
         DB::table('order')
@@ -233,7 +233,7 @@ class CustomerController extends Controller
         ->get();
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
     }
-    public function get_order_employee(Request $request ,$employeeId,$status ,$lang)
+    public function get_order_employee(Request $request ,$employeeId,$status=0 ,$lang)
     { 
         $order_employee = 
         DB::table('order')
