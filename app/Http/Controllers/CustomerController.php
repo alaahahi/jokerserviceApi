@@ -232,7 +232,7 @@ class CustomerController extends Controller
         ->get();
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
     }
-    public function get_order_employee(Request $request ,$employeeId,$status=0 ,$lang)
+    public function get_order_employee(Request $request ,$employeeId,$status ,$lang)
     { 
         $order_employee = 
         DB::table('order')
