@@ -218,7 +218,7 @@ class CustomerController extends Controller
         }
             return response()->json(['status'=>false,'code'=>400,'message'=>'Not Found'])->setStatusCode(400);    
     }
-    public function get_order_client(Request $request ,$clientId ,$lang)
+    public function get_order_client(Request $request ,$clientId ,$status,$lang)
     { 
         $order_client = 
         DB::table('order')
@@ -227,12 +227,13 @@ class CustomerController extends Controller
         ->join('employee', 'employee.id', '=', 'order.employee_id')
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('order.client_id', '=', $clientId )
+        ->where('order.status', '=', $status)
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*','order.id')
         ->get();
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
     }
-    public function get_order_employee(Request $request ,$employeeId ,$lang)
+    public function get_order_employee(Request $request ,$employeeId,$status ,$lang)
     { 
         $order_employee = 
         DB::table('order')
@@ -241,6 +242,7 @@ class CustomerController extends Controller
         ->join('employee', 'employee.id', '=', 'order.employee_id')
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('order.employee_id', '=', $employeeId )
+        ->where('order.status', '=', $status)
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*','order.id')
         ->get();
@@ -282,5 +284,18 @@ class CustomerController extends Controller
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully reject order'])->setStatusCode(200);
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order reject'])->setStatusCode(400);
+    }
+    public function client_order_remove(Request $request ,$orderId)
+    { 
+        $date = date('Y-m-d h:i');
+        $client_order_remove = 
+        DB::table('order')
+        ->where('order.id', '=', $orderId )
+        ->delete();
+        //return response()->json( $request->reject_note);
+        if(!empty($client_order_remove) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully delete order'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order deleted'])->setStatusCode(400);
     }
 }

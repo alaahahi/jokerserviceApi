@@ -23,8 +23,9 @@ Route::post('add_employee_info/{moblie?}', [CustomerController::class, 'add_empl
 Route::get('employee_info/{moblie?}/{lang?}', [CustomerController::class, 'employee_info']);
 Route::post('add_client_info/{moblie?}', [CustomerController::class, 'add_client_info']);
 Route::post('add_order/{clientId?}/{sub_categories_id?}/{employeeId?}', [CustomerController::class, 'add_order']);
-Route::get('get_order_client/{clientId?}/{lang?}', [CustomerController::class, 'get_order_client']);
-Route::get('get_order_employee/{employeeId?}/{lang?}', [CustomerController::class, 'get_order_employee']);
+Route::get('get_order_client/{clientId?}/{status?}/{lang?}', [CustomerController::class, 'get_order_client']);
+Route::get('get_order_employee/{employeeId?}/{status?}/{lang?}', [CustomerController::class, 'get_order_employee']);
 Route::post('employee_order_accept/{orderId?}', [CustomerController::class, 'employee_order_accept']);
 Route::post('client_order_finish/{orderId?}', [CustomerController::class, 'client_order_finish']);
 Route::post('employee_order_reject/{orderId?}', [CustomerController::class, 'employee_order_reject']);
+Route::delete('client_order_remove/{orderId?}', [CustomerController::class, 'client_order_remove']);
