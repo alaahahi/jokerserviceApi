@@ -227,7 +227,6 @@ class CustomerController extends Controller
         ->join('employee', 'employee.id', '=', 'order.employee_id')
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('order.client_id', '=', $clientId )
-        ->where('order.status', '=', $status)
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*','order.id')
         ->get();
