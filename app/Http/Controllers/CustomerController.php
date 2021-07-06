@@ -230,10 +230,7 @@ class CustomerController extends Controller
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*','order.id')
         ->get();
-        if(!empty($order_client->first()) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
-        else
-        return response()->json(['status'=>false,'code'=>400,'message'=>'No Order Found'])->setStatusCode(400);
     }
     public function get_order_employee(Request $request ,$employeeId ,$lang)
     { 
@@ -247,10 +244,7 @@ class CustomerController extends Controller
         ->where('sub_category_translation.lang', '=', $lang )
         ->select('*','order.id')
         ->get();
-        if(!empty($order_employee->first()) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_employee,])->setStatusCode(200);
-        else
-        return response()->json(['status'=>false,'code'=>400,'message'=>'No Order Found'])->setStatusCode(400);
     }
     public function employee_order_accept(Request $request ,$orderId)
     { 
