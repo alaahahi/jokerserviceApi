@@ -37,13 +37,24 @@ class CustomerController extends Controller
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $categories_sub_categories,])->setStatusCode(200);
         
     }
-    public function sub_categories_employee(Request $request ,$subCategoriesId)
+    public function sub_categories_employee(Request $request ,$subCategoriesId,$lang='en')
     { 
-        $sub_categories_employee = 
-        DB::table('employee')
-        ->orWhere('experience', 'like', '%' ."'".$subCategoriesId."'". '%')
-        ->select('*')
+        $user_info = DB::table('sub_category')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('sub_category.id', '=',$subCategoriesId )
+        ->where('sub_category_translation.lang', '=',$lang)
         ->get();
+        $categories = DB::table('sub_category')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('sub_category.id', '=', $subCategoriesId )
+        ->where('sub_category_translation.lang', '=',$lang)
+        ->select('sub_category.category_id')->groupBy('category_id')
+        ->get();
+        $sub_categories_employee = Employee::Where('experience', 'like', '%' ."'".$subCategoriesId."'". '%')->get();
+            foreach ($sub_categories_employee as $employee ){
+            $employee->setAttribute('experience',$user_info );
+            $employee->setAttribute('categories',$categories );
+            }
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $sub_categories_employee,])->setStatusCode(200);
     }
     public function user_info($moblie)

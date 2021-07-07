@@ -17,7 +17,7 @@ Orion::resource('cardType', CardTypeController::class);
 Orion::morphToManyResource('posts', 'comments', UsersController::class);
 //mobile
 Route::get('categories/{categoryId?}/sub_categories/{lang?}', [CustomerController::class, 'categories_sub_categories']);
-Route::get('sub_categories_employee/{subCategoriesId?}', [CustomerController::class, 'sub_categories_employee']);
+Route::get('sub_categories_employee/{subCategoriesId?}/{lang?}', [CustomerController::class, 'sub_categories_employee']);
 Route::get('categories/{lang?}', [CustomerController::class, 'categories']);
 Route::post('add_employee_info/{moblie?}', [CustomerController::class, 'add_employee_info']);
 Route::get('employee_info/{moblie?}/{lang?}', [CustomerController::class, 'employee_info']);
