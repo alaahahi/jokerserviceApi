@@ -29,3 +29,4 @@ Route::post('employee_order_accept/{orderId?}', [CustomerController::class, 'emp
 Route::post('client_order_finish/{orderId?}', [CustomerController::class, 'client_order_finish']);
 Route::post('employee_order_reject/{orderId?}', [CustomerController::class, 'employee_order_reject']);
 Route::delete('client_order_remove/{orderId?}', [CustomerController::class, 'client_order_remove']);
+Route::get('search/{q?}/{lang?}', [CustomerController::class, 'search']);
