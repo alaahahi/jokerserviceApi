@@ -43,6 +43,7 @@ class CustomerController extends Controller
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('sub_category.id', '=',$subCategoriesId )
         ->where('sub_category_translation.lang', '=',$lang)
+        ->select('*','sub_category.id')
         ->get();
         $categories = DB::table('sub_category')
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
@@ -205,7 +206,7 @@ class CustomerController extends Controller
     public function add_order(Request $request,$clientId,$sub_categories_id,$employeeId)
     { 
         $imageName ="default.png";
-        //$date = date('Y-m-d h:i');
+        $date = date('Y-m-d h:i');
         $monthName = date('F');
         $year = date('Y');
         $request->validate([
@@ -223,7 +224,7 @@ class CustomerController extends Controller
         
             DB::table('order')->insertGetId(array('client_id' =>$clientId,'employee_id'=>  $employeeId,'subcategory_id'=>$sub_categories_id
             ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
-            ,'date'=>$request->date,'details'=>$request->details
+            ,'date'=>$request->date,'details'=>$request->details,'created_at'=>$date
             ));
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added order info'])->setStatusCode(201);        
         }
@@ -233,12 +234,12 @@ class CustomerController extends Controller
     { 
         $order_client = 
         DB::table('order')
-        ->join('sub_category', 'sub_category.id', '=', 'order.subcategory_id')
+
         ->join('client', 'client.id', '=', 'order.client_id')
         ->join('employee', 'employee.id', '=', 'order.employee_id')
-        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+
         ->where('order.client_id', '=', $clientId )
-        ->where('sub_category_translation.lang', '=', $lang )
+
         ->select('*','order.id')
         ->get();
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $order_client,])->setStatusCode(200);
