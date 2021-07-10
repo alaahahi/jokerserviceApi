@@ -311,6 +311,13 @@ class CustomerController extends Controller
     }
     public function search(Request $request ,$q ,$lang='en')
     { 
+        $category = DB::table('category')
+        ->join('category_translation', 'category_translation.categoryId', '=', 'category.id')
+        ->where('category_translation.title', 'like', "%$q%")
+        ->where('category_translation.lang', '=',$lang)
+        ->where('category.visible', '=', '1' )
+        ->select('*','category.id')
+        ->get();
         $sub_category = DB::table('sub_category')
         ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
         ->where('sub_category_translation.title', 'like', "%$q%")
@@ -318,9 +325,19 @@ class CustomerController extends Controller
         ->where('sub_category.visible', '=', '1' )
         ->select('*','sub_category.id')
         ->get();
-        $employee = Employee::Where('name', 'like', "%$q%")->get();
+
+        $employees = Employee::Where('name', 'like', "%$q%")->get();
+        foreach ($employees as $employee ){
+            $employee->setAttribute('experience',
+             DB::table('sub_category')
+            ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+            ->whereIn('sub_category.id',array_filter( explode(",", str_replace("'", "", $employee->experience) )) )
+            ->where('sub_category_translation.lang', '=',$lang)
+            ->get()
+         );
+            }
         if($sub_category || $employee)
-        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => ['sub_category'=>$sub_category,'employee'=>$employee],])->setStatusCode(200);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => ['$category'=>$category ,'sub_category'=>$sub_category,'employee'=>$employees],])->setStatusCode(200);
         else
         return response()->json(['status'=>true,'code'=>400,'message'=>'not found sub category or employee',])->setStatusCode(400);
     }
