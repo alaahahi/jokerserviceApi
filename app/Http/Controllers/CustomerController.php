@@ -337,7 +337,7 @@ class CustomerController extends Controller
          );
             }
         if($sub_category || $employee)
-        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => ['$category'=>$category ,'sub_category'=>$sub_category,'employee'=>$employees],])->setStatusCode(200);
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => ['category'=>$category ,'sub_category'=>$sub_category,'employee'=>$employees],])->setStatusCode(200);
         else
         return response()->json(['status'=>true,'code'=>400,'message'=>'not found sub category or employee',])->setStatusCode(400);
     }
