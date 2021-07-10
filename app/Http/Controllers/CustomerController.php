@@ -341,4 +341,16 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>true,'code'=>400,'message'=>'not found sub category or employee',])->setStatusCode(400);
     }
+    public function app_page(Request $request ,$title,$lang)
+    { 
+        $app_page = 
+        DB::table('app_page')
+        ->join('app_page_translation', 'app_page_translation.app_page_id', '=', 'app_page.id')
+        ->where('app_page.title', '=', $title)
+        ->where('app_page_translation.lang', '=', $lang )
+        ->select('*')
+        ->get();
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $app_page,])->setStatusCode(200);
+        
+    }
 }

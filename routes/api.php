@@ -30,3 +30,4 @@ Route::post('client_order_finish/{orderId?}', [CustomerController::class, 'clien
 Route::post('employee_order_reject/{orderId?}', [CustomerController::class, 'employee_order_reject']);
 Route::delete('client_order_remove/{orderId?}', [CustomerController::class, 'client_order_remove']);
 Route::get('search/{q?}/{lang?}', [CustomerController::class, 'search']);
+Route::get('app_page/{title?}/{lang?}', [CustomerController::class, 'app_page']);
