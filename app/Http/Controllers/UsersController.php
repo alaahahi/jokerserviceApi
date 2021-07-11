@@ -13,6 +13,18 @@ use App\Models\Users;
 
 class UsersController extends Controller
 {
+    public function employees_payment(Request $request)
+    { 
+        $data = DB::table('employee')
+        ->select("*")
+        ->get();
+        //return response()->json($data);
+        if ($request->ajax()) 
+        {
+         return Datatables::of($data)->make(true);
+        }
+        return view('employees_payment',compact('data'));
+    }
     public function employees_accept(Request $request)
     { 
         $data = DB::table('employee')

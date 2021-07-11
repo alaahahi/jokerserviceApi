@@ -142,18 +142,21 @@ class CustomerController extends Controller
             (!empty($request->years_experience)) ?  $years_experience = $request->years_experience : $years_experience = $employee->years_experience;
             (!empty($request->languages)) ?  $languages = $request->languages : $languages = $employee->languages;
             (!empty($request->id_number)) ?  $id_number = $request->id_number : $id_number = $employee->id_number;
+            (!empty($request->name_ar)) ?  $name_ar = $request->name_ar : $name_ar = $employee->name_ar;
             //return response()->json( $name );
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->update(['name' => $name,'birthdate'=>$birthdate,'sex'=>$sex,'experience'=>$experience 
             ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$years_experience,'languages'=>$languages ,'id_number'=>$id_number
+            ,'name_ar'=>$name_ar
         ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
         else
             DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
             ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages
-            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience,'id_number'=>$request->id_number
+            ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience,'id_number'=>$request->id_number,
+            'name_ar'=>$request->name_ar
             ));
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
