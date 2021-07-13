@@ -356,4 +356,19 @@ class CustomerController extends Controller
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $app_page,])->setStatusCode(200);
         
     }
+    public function update_location(Request $request ,$moblie)
+    { 
+        $employee = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->first();
+        (!empty($request->location_lng)) ?  $location_lat = $request->location_lng : $location_lng = $employee->location_lng;
+        (!empty($request->location_lat)) ?  $location_lat = $request->location_lat : $location_lat = $employee->location_lat;
+        //return response()->json( $name );
+        $user_info = DB::table('employee')
+        ->where('employee.id', '=', $employee->id )
+        ->update(['location_lat' => $location_lat,'location_lat'=>$location_lat,]);
+        if($user_info)
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully User location is updated',])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'User Not found ',])->setStatusCode(400);
+    }
 }
