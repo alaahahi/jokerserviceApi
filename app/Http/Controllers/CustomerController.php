@@ -104,7 +104,7 @@ class CustomerController extends Controller
             ->update(['name' =>  $name,'updated_at'=> $date]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
-        DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name,'created_at'=> $date));
+        DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name,'created_at'=> $date,'push_notification_token'=>$request->push_notification_token));
         return response()->json(['status'=>true,'code'=>200,'message'=>'Added user info'])->setStatusCode(201);
         
     }
@@ -156,7 +156,7 @@ class CustomerController extends Controller
             DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
             ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages
             ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience,'id_number'=>$request->id_number,
-            'name_ar'=>$request->name_ar
+            'name_ar'=>$request->name_ar,'push_notification_token'=>$request->push_notification_token
             ));
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
