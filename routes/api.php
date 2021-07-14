@@ -32,3 +32,4 @@ Route::delete('client_order_remove/{orderId?}', [CustomerController::class, 'cli
 Route::get('search/{q?}/{lang?}', [CustomerController::class, 'search']);
 Route::get('app_page/{title?}/{lang?}', [CustomerController::class, 'app_page']);
 Route::post('update_location/{moblie?}', [CustomerController::class, 'update_location']);
+Route::post('update_token/{moblie?}', [CustomerController::class, 'update_token']);
