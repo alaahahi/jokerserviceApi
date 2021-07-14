@@ -379,15 +379,21 @@ class CustomerController extends Controller
         ->where('employee.phone', '=', $moblie )->first();
         (!empty($request->push_notification_token)) ?  $push_notification_token_employee = $request->push_notification_token : $push_notification_token_employee = $employee->push_notification_token;
         //return response()->json( $name );
-        $user_employee = DB::table('employee')
-        ->where('employee.id', '=', $employee->id )
-        ->update(['push_notification_token' => $push_notification_token_employee,]);
+        if(!empty($employee))
+        {
+            $user_employee = DB::table('employee')
+            ->where('employee.id', '=', $employee->id )
+            ->update(['push_notification_token' => $push_notification_token_employee,]);
+        }
         $client = DB::table('client')
         ->where('client.phone', '=', $moblie  )->first();
         (!empty($request->push_notification_token)) ?  $push_notification_token_client = $request->push_notification_token : $push_notification_token_client = $client->push_notification_token;
-        $user_client=DB::table('client')
-        ->where('client.id', '=', $client->id )
-        ->update(['push_notification_token'=>$push_notification_token_client]);
+        if(!empty($client))
+        {
+            $user_client=DB::table('client')
+            ->where('client.id', '=', $client->id )
+            ->update(['push_notification_token'=>$push_notification_token_client]);
+        }
         if($user_employee || $user_client)
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully User Token is updated',])->setStatusCode(200);
         else
