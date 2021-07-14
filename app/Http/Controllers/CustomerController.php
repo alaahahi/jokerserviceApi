@@ -99,9 +99,10 @@ class CustomerController extends Controller
             $client = DB::table('client')
             ->where('client.id', '=', $clientId->id )->first();
             (!empty($request->name)) ?  $name = $request->name : $name = $client->name;
+            (!empty($request->push_notification_token)) ?  $push_notification_token = $request->push_notification_token : $push_notification_token = $client->push_notification_token;
             DB::table('client')
             ->where('client.id', '=', $clientId->id )
-            ->update(['name' =>  $name,'updated_at'=> $date]);
+            ->update(['name' =>  $name,'updated_at'=> $date,'push_notification_token'=>$push_notification_token]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update client info'])->setStatusCode(201);
         }else
         DB::table('client')->insert(array('phone' => $moblie,'name'=>$request->name,'created_at'=> $date,'push_notification_token'=>$request->push_notification_token));
@@ -143,12 +144,13 @@ class CustomerController extends Controller
             (!empty($request->languages)) ?  $languages = $request->languages : $languages = $employee->languages;
             (!empty($request->id_number)) ?  $id_number = $request->id_number : $id_number = $employee->id_number;
             (!empty($request->name_ar)) ?  $name_ar = $request->name_ar : $name_ar = $employee->name_ar;
+            (!empty($request->push_notification_token)) ?  $push_notification_token = $request->push_notification_token : $push_notification_token = $employee->push_notification_token;
             //return response()->json( $name );
             $user_info = DB::table('employee')
             ->where('employee.id', '=', $employeeId->id )
             ->update(['name' => $name,'birthdate'=>$birthdate,'sex'=>$sex,'experience'=>$experience 
             ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$years_experience,'languages'=>$languages ,'id_number'=>$id_number
-            ,'name_ar'=>$name_ar
+            ,'name_ar'=>$name_ar,'push_notification_token'=>$push_notification_token
         ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
