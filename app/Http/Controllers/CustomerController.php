@@ -375,6 +375,8 @@ class CustomerController extends Controller
     }
     public function update_token(Request $request ,$moblie)
     { 
+        $user_client="";
+        $user_employee="";
         $employee = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->first();
         (!empty($request->push_notification_token)) ?  $push_notification_token_employee = $request->push_notification_token : $push_notification_token_employee = $employee->push_notification_token;
