@@ -396,7 +396,7 @@ class CustomerController extends Controller
             ->where('client.id', '=', $client->id )
             ->update(['push_notification_token'=>$push_notification_token_client]);
         }
-        if($user_employee || $user_client)
+        if($user_employee!="" || $user_client!="")
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully User Token is updated',])->setStatusCode(200);
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not found ',])->setStatusCode(400);
