@@ -71,9 +71,9 @@ class UsersController extends Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
-               
-        $response = curl_exec($ch); 
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);       
+        curl_exec($ch); 
+        
         if(!empty($approval_employee) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
         else
