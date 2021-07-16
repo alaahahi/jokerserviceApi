@@ -210,6 +210,8 @@ class CustomerController extends Controller
     }
     public function add_order(Request $request,$clientId,$sub_categories_id,$employeeId)
     { 
+        $title="Order Added";
+        $body="The Order Are In Status Pendding Successfully";
         $imageName ="default.png";
         $date = date('Y-m-d h:i');
         $monthName = date('F');
@@ -226,7 +228,36 @@ class CustomerController extends Controller
         }
         if(!empty($employeeId) && !empty($clientId))
         {
+            $firebaseToken = Employee::whereNotNull('push_notification_token')->where('employee.id', '=', $employeeId )->pluck('push_notification_token')->all();
+            //return response()->json($firebaseToken);
+            $data = [
+                "registration_ids" => $firebaseToken,
+                "notification" => [
+                    "title" => $title,
+                    "body" => $body,  
+                ]
+            ];
+            $dataString = json_encode($data);
         
+            $headers = [
+                'Authorization: key=' . $this->SERVER_API_KEY,
+                'Content-Type: application/json',
+            ];
+        
+            $ch = curl_init();
+          
+            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+           
+            curl_exec($ch); 
+
+            DB::table('notification')->insert(array('employee_id'=>$employeeId,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
+
             DB::table('order')->insertGetId(array('client_id' =>$clientId,'employee_id'=>  $employeeId,'subcategory_id'=>$sub_categories_id
             ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
             ,'date'=>$request->date,'details'=>$request->details,'created_at'=> $date
