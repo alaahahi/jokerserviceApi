@@ -336,6 +336,8 @@ class CustomerController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
        
         curl_exec($ch); 
+        DB::table('notification')->insert(array('client_id'=>$client_id,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
+
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
         }
         else
