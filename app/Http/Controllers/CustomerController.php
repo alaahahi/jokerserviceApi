@@ -401,4 +401,46 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not found ',])->setStatusCode(400);
     }
+    public function fcm(Request $request )
+    {
+        $data[]="";
+        return view('fcm',compact('data'));
+    }
+    public function sendNotification(Request $request )
+    {
+        $token = "fjQbwPmw6T0:APA91bEhUoZ5NX_8fYqXS_D3xaQI5WdlWphmG7HqC79xtON1t4KUweGO_hRsYQy1GmbSfxNDzrVFiwTAjuSgHIphrWpLQZ2HjxSRWq8JnTW-IB_q0OVVcCqYkuTVX3CC4QQ8zJCl0MBv";  
+        $from = "AAAAt5GtBus:APA91bEO33tVbtZ5Ix30sC4vNpvdUn4E87i-aw-mLpfz5nAMxFMYOUuEEEkb5G1BVJceVkab3Zxmijoy3BFhMTen4yzCDlW-qpfmDQnp1pXCv-oWqYn7WCkTuKj0hL_D_TiGewRrqCwA";
+        $msg = array
+              (
+                'body'  => "Testing Testing",
+                'title' => "Hi, From Raj",
+                'receiver' => 'erw',
+                'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
+                'sound' => 'mySound'/*Default sound*/
+              );
+
+        $fields = array
+                (
+                    'to'        => $token,
+                    'notification'  => $msg
+                );
+
+        $headers = array
+                (
+                    'Authorization: key=' . $from,
+                    'Content-Type: application/json'
+                );
+        //#Send Reponse To FireBase Server 
+        $ch = curl_init();
+        curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
+        curl_setopt( $ch,CURLOPT_POST, true );
+        curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
+        curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
+        curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
+        $result = curl_exec($ch );
+        dd($result);
+        curl_close( $ch );
+    }
+    
 }

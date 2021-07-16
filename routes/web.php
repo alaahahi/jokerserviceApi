@@ -37,3 +37,6 @@ Route::get('admin/rejection/{id?}', [CustomerController::class, 'rejection'])->n
 Route::get('admin/edit_product/{id?}', [CustomerController::class, 'edit_product'])->name('admin.edit_product');
 Route::put('admin/edit_products/{id?}', [CustomerController::class, 'edit_products'])->name('admin.edit_products');
 Route::delete('admin/remove_products/{id?}', [CustomerController::class, 'remove_products'])->name('admin.remove_products');
+
+Route::get('/fcm',[CustomerController::class, 'fcm']);
+Route::get('/send',[CustomerController::class, 'sendNotification']);
