@@ -345,26 +345,96 @@ class CustomerController extends Controller
     }
     public function client_order_finish(Request $request ,$orderId)
     { 
+        $title="Order Finish";
+        $body="The Order Are In Status Finish Successfully";
         $date = date('Y-m-d h:i');
         $client_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
         ->update(['status' => 3,'finish_date' => $date,'rate'=> $request->rate]);
+        $employee_id=DB::table('order')
+        ->where('order.id', '=', $orderId )->first()->employee_id;
         if(!empty($client_order_accept) )
+        {
+            $firebaseToken = Employee::whereNotNull('push_notification_token')->where('employee.id', '=', $employee_id )->pluck('push_notification_token')->all();
+            //return response()->json($firebaseToken);
+            $data = [
+                "registration_ids" => $firebaseToken,
+                "notification" => [
+                    "title" => $title,
+                    "body" => $body,  
+                ]
+            ];
+            $dataString = json_encode($data);
+        
+            $headers = [
+                'Authorization: key=' . $this->SERVER_API_KEY,
+                'Content-Type: application/json',
+            ];
+        
+            $ch = curl_init();
+          
+            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+           
+            curl_exec($ch); 
+
+            DB::table('notification')->insert(array('employee_id'=>$employee_id,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully finish order'])->setStatusCode(200);
+        }
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order finish'])->setStatusCode(400);
     }
     public function employee_order_reject(Request $request ,$orderId)
     { 
+        $title="Order Reject";
+        $body="Sorrt,The Order Are In Status Reject";
         $date = date('Y-m-d h:i');
         $employee_order_reject = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
         ->update(['status' => 2,'reject_date' => $date,'note'=> $request->note]);
         //return response()->json( $request->reject_note);
+        $client_id=DB::table('order')
+        ->where('order.id', '=', $orderId )->first()->client_id;
         if(!empty($employee_order_reject) )
+        {
+            $firebaseToken = Client::whereNotNull('push_notification_token')->where('client.id', '=', $client_id )->pluck('push_notification_token')->all();
+            //return response()->json($firebaseToken);
+            $data = [
+                "registration_ids" => $firebaseToken,
+                "notification" => [
+                    "title" => $title,
+                    "body" => $body,  
+                ]
+            ];
+            $dataString = json_encode($data);
+        
+            $headers = [
+                'Authorization: key=' . $this->SERVER_API_KEY,
+                'Content-Type: application/json',
+            ];
+        
+            $ch = curl_init();
+          
+            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+           
+            curl_exec($ch); 
+            DB::table('notification')->insert(array('client_id'=>$client_id,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
+    
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully reject order'])->setStatusCode(200);
+        }
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order reject'])->setStatusCode(400);
     }
