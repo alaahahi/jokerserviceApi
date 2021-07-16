@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Yajra\DataTables\DataTables;
 use App\Models\Employee;
+use App\Models\Client;
 use Illuminate\Support\Facades\DB;
 use PDF;
 
@@ -297,14 +298,46 @@ class CustomerController extends Controller
     }
     public function employee_order_accept(Request $request ,$orderId)
     { 
+        $title="Order Accept";
+        $body="The Order Are In Status Accept Successfully";
+        
         $date = date('Y-m-d h:i');
         $employee_order_accept = 
         DB::table('order')
         ->where('order.id', '=', $orderId )
         ->update(['status' => 1,'accepted_date' => $date,'note'=> $request->note]);
-        
-        if(!empty($employee_order_accept) )
+        $client_id=DB::table('order')
+        ->where('order.id', '=', $orderId )->first()->client_id;
+        if(!empty($employee_order_accept) ){
+        $firebaseToken = Client::whereNotNull('push_notification_token')->where('client.id', '=', $client_id )->pluck('push_notification_token')->all();
+        //return response()->json($firebaseToken);
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => $title,
+                "body" => $body,  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $this->SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+       
+        curl_exec($ch); 
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
+        }
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
     }
