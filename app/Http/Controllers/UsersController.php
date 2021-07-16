@@ -42,6 +42,8 @@ class UsersController extends Controller
     public function approval_employee(Request $request,$employee_id)
     { 
         $date = date('Y-m-d h:i');
+        $title="Employee Approval Account";
+        $body="Employee Approval Account Successfully";
         $approval_employee = 
         DB::table('employee')
         ->where('employee.id', '=', $employee_id )
@@ -51,8 +53,8 @@ class UsersController extends Controller
         $data = [
             "registration_ids" => $firebaseToken,
             "notification" => [
-                "title" => "Employee Approval Account",
-                "body" => "Employee Approval Account Successfully",  
+                "title" => $title,
+                "body" => $body,  
             ]
         ];
         $dataString = json_encode($data);
@@ -74,7 +76,10 @@ class UsersController extends Controller
        
         curl_exec($ch); 
         if(!empty($approval_employee) )
+        {
+        DB::table('notification')->insert(array('employee_id'=>$employee_id,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
+        }
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
     }

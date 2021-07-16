@@ -407,12 +407,6 @@ class CustomerController extends Controller
 
         return view('fcm');
     }
-    public function savePushNotificationToken(Request $request)
-    {
-        auth()->user()->update(['device_token'=>$request->token]);
-        return response()->json(['token saved successfully.']);
-    }
-    
     public function sendPushNotification(Request $request)
     {
         $firebaseToken = Employee::whereNotNull('push_notification_token')->pluck('push_notification_token')->all();
@@ -444,5 +438,27 @@ class CustomerController extends Controller
   
         dd($response);
     }
-    
+    public function notification(Request $request ,$moblie)
+    { 
+        $notification="";
+        $employee = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->first();
+        //return response()->json(  $employee  );
+        if(!empty($employee))
+        {
+            $notification= DB::table('notification')
+            ->where('notification.employee_id', '=', $employee->id )->get();
+        }
+        $client = DB::table('client')
+        ->where('client.phone', '=', $moblie  )->first();
+        if(!empty($client))
+        {
+            $notification= DB::table('notification')
+            ->where('notification.client_id', '=', $client->id )->get();
+        }
+        if($employee!="" || $client!="")
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $notification])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'User Not found ',])->setStatusCode(400);
+    }
 }
