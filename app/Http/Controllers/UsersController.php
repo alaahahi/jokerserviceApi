@@ -46,14 +46,13 @@ class UsersController extends Controller
         DB::table('employee')
         ->where('employee.id', '=', $employee_id )
         ->update(['accepted_date' => $date,'is_active'=>1]);
-
         $firebaseToken = Employee::whereNotNull('push_notification_token')->where('employee.id', '=', $employee_id )->pluck('push_notification_token')->all();
-        return response()->json($firebaseToken);
+        //return response()->json($firebaseToken);
         $data = [
             "registration_ids" => $firebaseToken,
             "notification" => [
-                "title" => "Employee Approval Acount",
-                "body" => "Employee Approval Acount Successfully",  
+                "title" => "Employee Approval Account",
+                "body" => "Employee Approval Account Successfully",  
             ]
         ];
         $dataString = json_encode($data);
@@ -71,9 +70,9 @@ class UsersController extends Controller
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);       
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+       
         curl_exec($ch); 
-        
         if(!empty($approval_employee) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
         else
