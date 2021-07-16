@@ -10,7 +10,7 @@ use PDF;
 
 class CustomerController extends Controller
 {
-
+    private   $SERVER_API_KEY = 'AAAAt5GtBus:APA91bEO33tVbtZ5Ix30sC4vNpvdUn4E87i-aw-mLpfz5nAMxFMYOUuEEEkb5G1BVJceVkab3Zxmijoy3BFhMTen4yzCDlW-qpfmDQnp1pXCv-oWqYn7WCkTuKj0hL_D_TiGewRrqCwA';
     public function categories(Request $request ,$lang)
     { 
         $category = 
@@ -271,6 +271,7 @@ class CustomerController extends Controller
         DB::table('order')
         ->where('order.id', '=', $orderId )
         ->update(['status' => 1,'accepted_date' => $date,'note'=> $request->note]);
+        
         if(!empty($employee_order_accept) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully accept order'])->setStatusCode(200);
         else
@@ -403,44 +404,45 @@ class CustomerController extends Controller
     }
     public function fcm(Request $request )
     {
-        $data[]="";
-        return view('fcm',compact('data'));
+
+        return view('fcm');
     }
-    public function sendNotification(Request $request )
+    public function savePushNotificationToken(Request $request)
     {
-        $token = "fDQ-tw0z9ko:APA91bFzp-2_cMKWvMj2e1FLmEGxcQ-_5PbHDRhOktBypIbBjehP0_6Bbn00xAA0lCeWhxPo1dt-_h1nTEjoZX1FMqNUpOwrPieq0H_pyu_FNRWgnQXmWO8AMrW-a6maZJ5IHJaoNWEL";  
-        $from = "AAAAt5GtBus:APA91bEO33tVbtZ5Ix30sC4vNpvdUn4E87i-aw-mLpfz5nAMxFMYOUuEEEkb5G1BVJceVkab3Zxmijoy3BFhMTen4yzCDlW-qpfmDQnp1pXCv-oWqYn7WCkTuKj0hL_D_TiGewRrqCwA";
-        $msg = array
-              (
-                'body'  => "Testing Testing",
-                'title' => "Hi, From Raj",
-                'receiver' => 'erw',
-                'icon'  => "https://image.flaticon.com/icons/png/512/270/270014.png",/*Default Icon*/
-                'sound' => 'mySound'/*Default sound*/
-              );
-
-        $fields = array
-                (
-                    'to'        => $token,
-                    'notification'  => $msg
-                );
-
-        $headers = array
-                (
-                    'Authorization: key=' . $from,
-                    'Content-Type: application/json'
-                );
-        //#Send Reponse To FireBase Server 
+        auth()->user()->update(['device_token'=>$request->token]);
+        return response()->json(['token saved successfully.']);
+    }
+    
+    public function sendPushNotification(Request $request)
+    {
+        $firebaseToken = Employee::whereNotNull('push_notification_token')->pluck('push_notification_token')->all();
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => $request->title,
+                "body" => $request->body,  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $this->SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
         $ch = curl_init();
-        curl_setopt( $ch,CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send' );
-        curl_setopt( $ch,CURLOPT_POST, true );
-        curl_setopt( $ch,CURLOPT_HTTPHEADER, $headers );
-        curl_setopt( $ch,CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
-        curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
-        $result = curl_exec($ch );
-        dd($result);
-        curl_close( $ch );
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
+  
+        dd($response);
     }
     
 }

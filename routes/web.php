@@ -40,3 +40,6 @@ Route::delete('admin/remove_products/{id?}', [CustomerController::class, 'remove
 
 Route::get('/fcm',[CustomerController::class, 'fcm']);
 Route::get('/send',[CustomerController::class, 'sendNotification']);
+
+Route::post('/save-push-notification-token', [CustomerController::class, 'savePushNotificationToken'])->name('save-push-notification-token');
+Route::post('/send-push-notification', [CustomerController::class, 'sendPushNotification'])->name('send.push-notification');
