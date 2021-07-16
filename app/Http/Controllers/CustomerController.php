@@ -408,7 +408,7 @@ class CustomerController extends Controller
     }
     public function sendNotification(Request $request )
     {
-        $token = "fjQbwPmw6T0:APA91bEhUoZ5NX_8fYqXS_D3xaQI5WdlWphmG7HqC79xtON1t4KUweGO_hRsYQy1GmbSfxNDzrVFiwTAjuSgHIphrWpLQZ2HjxSRWq8JnTW-IB_q0OVVcCqYkuTVX3CC4QQ8zJCl0MBv";  
+        $token = "fDQ-tw0z9ko:APA91bFzp-2_cMKWvMj2e1FLmEGxcQ-_5PbHDRhOktBypIbBjehP0_6Bbn00xAA0lCeWhxPo1dt-_h1nTEjoZX1FMqNUpOwrPieq0H_pyu_FNRWgnQXmWO8AMrW-a6maZJ5IHJaoNWEL";  
         $from = "AAAAt5GtBus:APA91bEO33tVbtZ5Ix30sC4vNpvdUn4E87i-aw-mLpfz5nAMxFMYOUuEEEkb5G1BVJceVkab3Zxmijoy3BFhMTen4yzCDlW-qpfmDQnp1pXCv-oWqYn7WCkTuKj0hL_D_TiGewRrqCwA";
         $msg = array
               (
