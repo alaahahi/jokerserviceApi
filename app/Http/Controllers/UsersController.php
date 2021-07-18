@@ -18,12 +18,16 @@ class UsersController extends Controller
     public function employees_payment(Request $request)
     { 
         $data = DB::table('employee')
+        ->join('order', 'order.employee_id', '=', 'employee.id')
         ->select("*")
         ->get();
         //return response()->json($data);
         if ($request->ajax()) 
         {
-         return Datatables::of($data)->make(true);
+         return Datatables::of($data)->addColumn('action', function ($data) {
+            return '<a  href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right edit"><i class="voyager-wallet"></i>Pay</a>';
+    })
+        ->rawColumns(['action'])->make(true);
         }
         return view('employees_payment',compact('data'));
     }

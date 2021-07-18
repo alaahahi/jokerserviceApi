@@ -17,40 +17,21 @@
             </span>
 
 </div>
-@foreach ($data as $customer)
-<div class="col-md-4">
-<div class="card" style="border-radius:15px">
-<div class="card-header text-center" style="padding: 3%;">
-Employees Mobile: {{ $customer->phone }}
-</div>
-  <div class="container">
-    <h4><b>Name : {{ $customer->name }}</b></h4>
-    <h5><b>Birthdate : {{ $customer->birthdate }}</b></h5>
-    <h5><b>Experience : {{ $customer->experience }}</b></h5>
-    <h5><b>Sex : {{ $customer->sex }}</b></h5>
-    <h5><b>ID Card : {{ $customer->id_number }}</b></h5>
-    <h5><b>Years Experience : {{ $customer->years_experience }}</b></h5>
-    <p>Date : {{$customer->created_at}}</p>
-    <p>Accepted : {{ $customer->is_active }}</p>
-    <div class="card-footer text-center">
-          <div class="btn-wrapper  justify-content-between">
-          @if ($customer->is_active==0)
-          <a href="javascript:void(0)" data-toggle="tooltip"    data-id="{{$customer->id}}"  class="btn btn-danger rejection">Rejection</a>
-          <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}" class="btn btn-warning approval">Approval</a>
-          @endif
-          @if ($customer->is_active==1)
-          <a href="javascript:void(0)" data-toggle="tooltip"     class="btn btn-success ">Accepted </a>
-          @endif
-          @if ($customer->is_blocked==1)
-          <a href="javascript:void(0)" data-toggle="tooltip"  id="{{$customer->id}}"  data-id="{{$customer->id}}"   class="btn btn-danger un_block">Un Block</a>
-          @endif
-          </div>
-    </div>
-</div>
-</div>
-</div>
-@endforeach
-
+<div class="col-md-12">
+<table class="table table-bordered data-table">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>birthdate</th>
+                        <th>is_active</th>
+                        <th>phone</th>
+                        <th>payment</th>
+                        <th>action</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            </div>
 </div>
 </div>
 
@@ -58,6 +39,20 @@ Employees Mobile: {{ $customer->phone }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
+
+$(function () {
+
+var table = $('.data-table').DataTable({
+    ajax: "{{ route('employees_payment') }}",
+    columns: [
+        {data: 'name', name: 'name'},
+        {data: 'birthdate', name: 'birthdate'},
+        {data: 'is_active', name: 'is_active'},
+        {data: 'phone', name: 'phone'},
+        {data: 'payment', name: 'payment'},
+        {data: 'action', name: 'action'},
+    ]
+});
   $('body').on('click', '.approval', function () {
       $(this).attr('disabled', true);      
       var Item_id = $(this).data('id');
@@ -82,5 +77,7 @@ Employees Mobile: {{ $customer->phone }}
         $('#'+Item_id).css("background-color", "#2ecc71").text("Done"); 
 });
    });
+
+  });
 </script>
   @endsection
