@@ -42,10 +42,11 @@
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<li class="menu-active"><a href="index.html">Home</a></li>
-						<li><a href="#fact-area">Download It</a></li>
+						<li><a href="#fact-area">Download IT</a></li>
 						<li><a href="#beautifies">Beautifies</a></li>
 						<li ><a href="#testimonials-area">Testimonials</a></li>
 						<li ><a href="#contact">Comtact Us</a></li>
+						<li ><a  href="https://joker-services.com/jokerservice/public/admin">Login</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -486,7 +487,7 @@
 	<section class="contact-page-area section-gap" id="contact">
 		<div class="container">
 			<div class="row">
-			    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d51515.70226249319!2d44.04398471936176!3d36.197413931409166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2siq!4v1626616306645!5m2!1sar!2siq" width="100%" height="445" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d51515.70226249319!2d44.04398471936176!3d36.197413931409166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2siq!4v1626616306645!5m2!1sar!2siq" width="100%" height="445" style="border:0;margin-bottom: 30px;" allowfullscreen="" loading="lazy"></iframe>
 			    <br>
 				<div class="col-lg-4 d-flex flex-column address-wrap">
 					<div class="single-contact-address d-flex flex-row">
