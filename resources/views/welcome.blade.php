@@ -1,543 +1,662 @@
 <!DOCTYPE html>
-<html  >
+<html lang="zxx" class="no-js">
+
 <head>
-  <!-- Site made with Mobirise Website Builder v5.3.0, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.3.0, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo-170x161.png" type="image/x-icon">
-  <meta name="description" content="">
-  
-  
-  <title>Home</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/animatecss/animate.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
-  
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="codepixer">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Appru</title>   
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,600|Roboto:400,400i,500" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" href="css/linearicons.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/nice-select.css">
+	<link rel="stylesheet" href="css/hexagons.min.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-  
-  <section class="menu menu2 cid-stuXMcbCwX" once="menu" id="menu2-m">
-    
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-        <div class="container">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="https://savingapp.co">
-                        <img src="assets/images/logo-170x161.png" alt="savingapp" style="height: 4.3rem;">
-                    </a>
-                </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-secondary display-7" href="#">Saving App</a></span>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-secondary text-primary display-4" href="index.html#header11-q">Home</a></li><li class="nav-item"><a class="nav-link link text-secondary text-primary display-4" href="index.html#gallery6-t">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link link text-secondary text-primary display-4" href="index.html#contacts3-u">Contacts</a>
-                    </li><li class="nav-item"><a class="nav-link link text-secondary text-primary display-4" href="index.html#form4-v">Contact US</a></li></ul>
-                
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-secondary display-4" href="https://www.savingapp.co/AdminCp/public/admin">
-                        My Account</a></div>
-            </div>
-        </div>
-    </nav>
-</section>
+	<!-- start header Area -->
+	<header id="header">
+		<div class="container main-menu">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="index.html">Home</a></li>
+						<li><a href="#fact-area">Download It</a></li>
+						<li><a href="#beautifies">Beautifies</a></li>
+						<li ><a href="#testimonials-area">Testimonials</a></li>
+						<li ><a href="#contact">Comtact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- end header Area -->
 
-<section class="header11 cid-stWculh625" id="header11-q">
+	<!-- start banner Area -->
+	<section class="home-banner-area">
+		<div class="container">
+			<div class="row fullscreen d-flex align-items-center justify-content-between">
+				<div class="home-banner-content col-lg-6 col-md-6">
+					<h1>
+					Joker <br> Services
+					</h1>
+					<p>New Way To Conntect With Experts</p>.</p>
+					<div class="download-button d-flex flex-row justify-content-start">
+						<div class="buttons flex-row d-flex">
+							<i class="fa fa-apple" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on App Store
+									</p>
+								</a>
+							</div>
+						</div>
+						<div class="buttons dark flex-row d-flex">
+							<i class="fa fa-android" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on Play Store
+									</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="banner-img col-lg-4 col-md-6">
+					<img class="img-fluid" src="img/banner-img.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
 
-    
+	<!-- Start fact Area -->
+	<section class="fact-area" id="fact-area">
+		<div class="container">
+			<div class="fact-box">
+				<div class="row align-items-center">
+					<div class="col single-fact">
+						<h2>100K+</h2>
+						<p>Total Downloads</p>
+					</div>
+					<div class="col single-fact">
+						<h2>10K+</h2>
+						<p>Positive Reviews</p>
+					</div>
+					<div class="col single-fact">
+						<h2>50K+</h2>
+						<p>Daily Visitors</p>
+					</div>
+					<div class="col single-fact">
+						<h2>0.02%</h2>
+						<p>Uninstallation Rate</p>
+					</div>
+					<div class="col single-fact">
+						<h2>15K+</h2>
+						<p>Pro User</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End fact Area -->
 
-    
+	<!-- Start feature Area -->
+	<section class="feature-area section-gap-top">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-6">
+					<div class="section-title text-center">
+						<h2>Download It Now</h2>
+						<p>You will get many, many advantages when you register in the application as an expert or as a user.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-feature">
+						<a href="#" class="title">
+							<span class="lnr lnr-book"></span>
+							<h3>Expert Employees</h3>
+						</a>
+						<p>
+							Usage of the best tools to becoming more common due to rapid advancement of technology and power.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-feature">
+						<a href="#" class="title">
+							<span class="lnr lnr-book"></span>
+							<h3>Professional Service</h3>
+						</a>
+						<p>
+							Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-feature">
+						<a href="#" class="title">
+							<span class="lnr lnr-book"></span>
+							<h3>Great Support</h3>
+						</a>
+						<p>
+							Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+						</p>
+					</div>
+				</div>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6 image-wrapper">
-                <img class="w-100" src="assets/images/whatsapp-image-2021-04-01-at-16.01.36-1076x883.jpg" alt="Mobirise">
-            </div>
-            <div class="col-12 col-md">
-                <div class="text-wrapper text-center">
-                    <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">
-                        <strong>Saving App</strong></h1>
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        Every day is like Black Friday</p>
-                    <div class="mbr-section-btn mt-3"><a class="btn btn-secondary display-7" href="#">Get Started</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+			</div>
+		</div>
+	</section>
+	<!-- End feature Area -->
 
-<section class="features11 cid-stuWepKF8i" id="features12-l">
+	<!-- Start about Area -->
+	<section class="about-area" id="beautifies">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 home-about-left">
+					<img class="img-fluid" src="img/iphone.png" alt="">
+				</div>
+				<div class="offset-lg-1 col-lg-5 home-about-right">
+					<h1>
+						We Believe that <br>
+						Interior beautifies the <br>
+						Total Architecture
+					</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+						magna aliqua.Ut
+						enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+					</p>
+					<a class="primary-btn text-uppercase" href="#">Get Details</a>
+				</div>
+				<div class="col-lg-6 home-about-right home-about-right2">
+					<h1>
+						We Believe that <br>
+						Interior beautifies the <br>
+						Total Architecture
+					</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+						magna aliqua.Ut
+						enim ad minim. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+					</p>
+					<div class="download-button d-flex flex-row justify-content-start">
+						<div class="buttons flex-row d-flex">
+							<i class="fa fa-apple" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on App Store
+									</p>
+								</a>
+							</div>
+						</div>
+						<div class="buttons dark flex-row d-flex">
+							<i class="fa fa-android" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on Play Store
+									</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 home-about-left">
+					<img class="img-fluid" src="img/iphone.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End about Area -->
 
-    
-    
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg">
-                <div class="card-wrapper">
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style mb-4 display-2">
-                            <strong>Special Offer</strong></h4>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                            You don't have to code to create your own site. Select one of available themes.</p>
-                        <div class="mbr-text mbr-fonts-style counter-container display-7">
-                            <ul>
-                                <li>Mobile-friendly</li>
-                                <li>Easy setup</li>
-                                <li>Edit visually</li>
-                            </ul>
-                        </div>
-                        <div class="mbr-section-btn mb-4"><a class="btn btn-black display-4" href="#">View all our features</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 md-pb">
-                <div class="image-wrapper">
-                    <img src="assets/images/pngkey.com-offer-tag-png-365439-1076x1343.png" alt="Mobirise">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section class="features5 cid-stWo32LXQH" id="features6-12">
 
-    
+	<!-- Start Testimonials Area -->
+	<section class="testimonials-area section-gap-top" id="testimonials-area">
+		<div class="container">
+			<div class="testi-slider owl-carousel" data-slider-id="1">
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it,
+								you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it,
+								you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it,
+								you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="testi-item">
+						<img src="img/quote.png" alt="">
+						<h4>Fanny Spencer</h4>
+						<ul class="list">
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+							<li><a href="#"><i class="fa fa-star"></i></a></li>
+						</ul>
+						<div class="wow fadeIn" data-wow-duration="1s">
+							<p>
+								As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about it,
+								you travel
+								across her face <br> and She is the host to your journey.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="owl-thumbs d-flex justify-content-center" data-slider-id="1">
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="img/testimonial/t1.jpg" alt="">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="img/testimonial/t2.jpg" alt="">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="img/testimonial/t3.jpg" alt="">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+				<div class="owl-thumb-item">
+					<div>
+						<img class="img-fluid" src="img/testimonial/t4.jpg" alt="">
+					</div>
+					<div class="overlay overlay-grad"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Testimonials Area -->
 
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12 col-lg-6">
-                <div class="card-wrapper mbr-flex">
-                    <div class="card-box align-left">
-                        
-                        <h5 class="card-title mbr-fonts-style align-left mb-3 display-5">
-                            <strong>Android</strong></h5>
-                        <p class="mbr-text mbr-fonts-style mb-3 display-4">
-                            You don't have to code when you create your own site. Select one of available themes in the Mobirise sitebuilder.</p>
-                        <div class="mbr-section-btn"><a href="https://play.google.com/store/apps/details?id=com.savingapp.co" class="btn btn-black display-4">Download</a></div>
-                    </div>
-                    <div class="img-wrapper img1 align-center">
-                        <span class="mbr-iconfont socicon-android socicon"></span>
-                    </div>
-                </div>
-            </div>
+	<!-- Start Screenshot Area 
+	<section class="screenshot-area section-gap-top">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-6">
+					<div class="section-title text-center">
+						<h2>Featured Screens</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="owl-carousel owl-screenshot">
+					<div class="single-screenshot">
+						<img class="img-fluid" src="img/screenshots/s1.jpg" alt="">
+					</div>
+					<div class="single-screenshot">
+						<img class="img-fluid" src="img/screenshots/s2.jpg" alt="">
+					</div>
+					<div class="single-screenshot">
+						<img class="img-fluid" src="img/screenshots/s3.jpg" alt="">
+					</div>
+					<div class="single-screenshot">
+						<img class="img-fluid" src="img/screenshots/s4.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	End Screenshot Area -->
 
-            <div class="card col-12 col-lg-6">
-                <div class="card-wrapper mbr-flex">
-                    <div class="card-box align-left">
-                        
-                        <h5 class="card-title mbr-fonts-style align-left mb-3 display-5">
-                            <strong>IOS</strong></h5>
-                        <p class="mbr-text mbr-fonts-style mb-3 display-4">
-                            Select the theme that suits you. Each theme in the Mobirise website building software contains a set of unique blocks.</p>
-                        <div class="mbr-section-btn"><a href="#" class="btn btn-black display-4">Download</a></div>
-                    </div>
-                    <div class="img-wrapper img2 align-center">
-                        <span class="mbr-iconfont socicon-apple socicon"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+	<!-- Start Pricing Area 
+	<section class="pricing-area">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-6">
+					<div class="section-title text-center">
+						<h2>Suitable Pricing Plans</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua.
+						</p>
+					</div>
+				</div>
+			</div>
 
-<section class="content1 cid-s48udlf8KU" id="content1-8">
-    
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="title col-12 col-md-9">
-                <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2"><strong>Work with Content</strong></h3>
-                <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">Click on the image to replace it. To change parameters of a block, click on <em>the blue gear icon</em>. You can set a background type and its content. Click on the Buttons parameter to enable buttons for this block. Click in the text to change your text style or color. Select text to change its formatting or add links.</h4>
-                
-            </div>
-        </div>
-    </div>
-</section>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-price">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Standard</h4>
+								<p>For the <br>individuals</p>
+							</div>
+							<div class="top-right">
+								<h1>£199</h1>
+							</div>
+						</div>
+						<div class="end-sec">
+							<ul>
+								<li>2.5 GB Free Photos</li>
+								<li>Secure Online Transfer Indeed</li>
+								<li>Unlimited Styles for interface</li>
+								<li>Reliable Customer Service</li>
+								<li>Manual Backup Provided</li>
+							</ul>
+							<button class="primary-btn price-btn mt-20">Purchase Plan</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-price">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Business</h4>
+								<p>For <br>small Company</p>
+							</div>
+							<div class="top-right">
+								<h1>£399</h1>
+							</div>
+						</div>
+						<div class="end-sec">
+							<ul>
+								<li>2.5 GB Free Photos</li>
+								<li>Secure Online Transfer Indeed</li>
+								<li>Unlimited Styles for interface</li>
+								<li>Reliable Customer Service</li>
+								<li>Manual Backup Provided</li>
+							</ul>
+							<button class="primary-btn price-btn mt-20">Purchase Plan</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-price">
+						<div class="top-sec d-flex justify-content-between">
+							<div class="top-left">
+								<h4>Ultimate</h4>
+								<p>For <br>large Company</p>
+							</div>
+							<div class="top-right">
+								<h1>£499</h1>
+							</div>
+						</div>
+						<div class="end-sec">
+							<ul>
+								<li>2.5 GB Free Photos</li>
+								<li>Secure Online Transfer Indeed</li>
+								<li>Unlimited Styles for interface</li>
+								<li>Reliable Customer Service</li>
+								<li>Manual Backup Provided</li>
+							</ul>
+							<button class="primary-btn price-btn mt-20">Purchase Plan</button>
+						</div>
+					</div>
+				</div>
 
-<section class="image4 cid-stWm7FAzZt" id="image4-10">
-    
+			</div>
+		</div>
+	</section>
+	 End Pricing Area -->
 
-    
+	<!-- Start Footer Area -->
+	<section class="contact-page-area section-gap" id="contact">
+		<div class="container">
+			<div class="row">
+			    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d51515.70226249319!2d44.04398471936176!3d36.197413931409166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2siq!4v1626616306645!5m2!1sar!2siq" width="100%" height="445" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			    <br>
+				<div class="col-lg-4 d-flex flex-column address-wrap">
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-home"></span>
+						</div>
+						<div class="contact-details">
+							<h5>Erbil, Iraq</h5>
+							<p>Center City</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-phone-handset"></span>
+						</div>
+						<div class="contact-details">
+							<h5>00964 750 955 4181</h5>
+							<p>Sun to Fri 9am to 6 pm</p>
+						</div>
+					</div>
+					<div class="single-contact-address d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-envelope"></span>
+						</div>
+						<div class="contact-details">
+							<h5>support@joker-service.com</h5>
+							<p>Send us your query anytime!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
+						<div class="row">
+							<div class="col-lg-6 form-group">
+								<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+								 class="common-input mb-20 form-control" required="" type="text">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <div class="image-wrapper">
-                    <img src="assets/images/id-card-2-1048x684.png" alt="Mobirise">
-                    <p class="mbr-text mbr-fonts-style mt-2 align-center display-4">
-                        Number</p>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="image-wrapper">
-                    <img src="assets/images/id-card-3-1048x685.png" alt="Mobirise">
-                    <p class="mbr-text mbr-fonts-style mt-2 align-center display-4">
-                        Our Card</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+								<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+								 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control"
+								 required="" type="email">
 
-<section class="image3 cid-s48upRUlSD" id="image3-9">
-    
+								<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'"
+								 class="common-input mb-20 form-control" required="" type="text">
+							</div>
+							<div class="col-lg-6 form-group">
+								<textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''"
+								 onblur="this.placeholder = 'Messege'" required=""></textarea>
+							</div>
+							<div class="col-lg-12 d-flex justify-content-between">
+								<div class="alert-msg" style="text-align: left;"></div>
+								<button class="primary-btn" style="float: right;">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End contact-page Area -->
+	<br>
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Top Products</h4>
+					<ul>
+						<li><a href="#">Managed Website</a></li>
+						<li><a href="#">Manage Reputation</a></li>
+						<li><a href="#">Power Tools</a></li>
+						<li><a href="#">Marketing Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Quick Links</h4>
+					<ul>
+						<li><a href="#">Jobs</a></li>
+						<li><a href="#">Brand Assets</a></li>
+						<li><a href="#">Investor Relations</a></li>
+						<li><a href="#">Terms of Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Features</h4>
+					<ul>
+						<li><a href="#">Jobs</a></li>
+						<li><a href="#">Brand Assets</a></li>
+						<li><a href="#">Investor Relations</a></li>
+						<li><a href="#">Terms of Service</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-md-6 single-footer-widget">
+					<h4>Resources</h4>
+					<ul>
+						<li><a href="#">Guides</a></li>
+						<li><a href="#">Research</a></li>
+						<li><a href="#">Experts</a></li>
+						<li><a href="#">Agencies</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-md-6 single-footer-widget">
+					<h4>Newsletter</h4>
+					<p>You can trust us. we only send promo offers,</p>
+					<div class="form-wrap" id="mc_embed_signup">
+						<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+						 method="get" class="form-inline">
+							<input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+							 required="" type="email">
+							<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+							<div style="position: absolute; left: -5000px;">
+								<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+							</div>
 
-    
+							<div class="info"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom row align-items-center">
+				<p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This is made with <i class="fa fa-heart-o" aria-hidden="true"></i>  by  Intellijapp.com<a href="https://colorlib.com" target="_blank" hidden>Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				<div class="col-lg-6 col-md-6 social-link">
+					<div class="download-button d-flex flex-row justify-content-end">
+						<div class="buttons gray flex-row d-flex">
+							<i class="fa fa-apple" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on App Store
+									</p>
+								</a>
+							</div>
+						</div>
+						<div class="buttons gray flex-row d-flex">
+							<i class="fa fa-android" aria-hidden="true"></i>
+							<div class="desc">
+								<a href="#">
+									<p>
+										<span>Available</span> <br>
+										on Play Store
+									</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-9">
-                <div class="image-wrapper">
-                    <img src="assets/images/whatsapp-image-2021-04-01-at-16.01.04-1280x1051.jpg" alt="Mobirise">
-                    <p class="mbr-description mbr-fonts-style mt-2 align-center display-4">
-                        Image Description</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+	<script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="js/tilt.jquery.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	<script src="js/easing.min.js"></script>
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/owl-carousel-thumb.min.js"></script>
+	<script src="js/hexagons.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<script src="js/main.js"></script>
+</body>
 
-<section class="gallery6 mbr-gallery cid-stWgr2bl9v" id="gallery6-t">
-    
-
-    
-
-    <div class="container">
-        <div class="mbr-section-head">
-            <h3 class="mbr-section-title mbr-fonts-style align-center m-0 display-2"><strong>Our Partners</strong></h3>
-            
-        </div>
-        <div class="row mbr-gallery mt-4">
-            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/logo-640x640.jpg" alt="" data-slide-to="0" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/logo-726x726.jpg" alt="" data-slide-to="1" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/ahmad-logo-726x726.png" alt="" data-slide-to="2" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/5bi8zovobz0eybjjgfrv-1556x1556.jpg" alt="" data-slide-to="3" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/dapt4qcp0ul4sc2jdj9i-2048x2048.jpg" alt="" data-slide-to="4" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/jnkaddd61ddyu4a4ixq7-540x543.jpg" alt="" data-slide-to="5" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/q8xi3raz7nvwzdmoevit-1079x1079.jpg" alt="" data-slide-to="6" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/xejeow2tctyviemjuqlk-960x960.jpg" alt="" data-slide-to="7" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/xnqgx4agfjoy588lxeyk-1104x1112.jpg" alt="" data-slide-to="8" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/x8daiq2ad2ppyrjqiscr-600x600.jpg" alt="" data-slide-to="9" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/8urgp9ri09fza0dpallq-1080x648.jpg" alt="" data-slide-to="10" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
-                <div class="item-wrapper" data-toggle="modal" data-target="#stWpbM8sdl-modal">
-                    <img class="w-100" src="assets/images/6rbdfxu652th0tilssys-2048x1365.jpg" alt="" data-slide-to="11" data-target="#lb-stWpbM8sdl">
-                    <div class="icon-wrapper">
-                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
-                    </div>
-                </div>
-                
-            </div>
-            
-        </div>
-
-        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="stWpbM8sdl-modal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="carousel slide carousel-fade" id="lb-stWpbM8sdl" data-interval="5000">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="assets/images/logo-640x640.jpg" alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/logo-726x726.jpg" alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/ahmad-logo-726x726.png" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/5bi8zovobz0eybjjgfrv-1556x1556.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/dapt4qcp0ul4sc2jdj9i-2048x2048.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/jnkaddd61ddyu4a4ixq7-540x543.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/q8xi3raz7nvwzdmoevit-1079x1079.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/xejeow2tctyviemjuqlk-960x960.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/xnqgx4agfjoy588lxeyk-1104x1112.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/x8daiq2ad2ppyrjqiscr-600x600.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/8urgp9ri09fza0dpallq-1080x648.jpg" alt="">
-                                </div><div class="carousel-item">
-                                    <img class="d-block w-100" src="assets/images/6rbdfxu652th0tilssys-2048x1365.jpg" alt="">
-                                </div>
-                                
-                            </div>
-                            <ol class="carousel-indicators">
-                                <li data-slide-to="0" class="active" data-target="#lb-stWpbM8sdl"></li>
-                                <li data-slide-to="1" data-target="#lb-stWpbM8sdl"></li>
-                                <li data-slide-to="2" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="3" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="4" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="5" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="6" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="7" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="8" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="9" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="10" data-target="#lb-stWpbM8sdl"></li><li data-slide-to="11" data-target="#lb-stWpbM8sdl"></li>
-                                
-                            </ol>
-                            <a role="button" href="" class="close" data-dismiss="modal" aria-label="Close">
-                            </a>
-                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" href="#lb-stWpbM8sdl">
-                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next carousel-control" role="button" data-slide="next" href="#lb-stWpbM8sdl">
-                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="contacts3 map1 cid-stWicaq8te" id="contacts3-u">
-
-    
-    
-    <div class="container">
-        <div class="mbr-section-head">
-            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                <strong>Contacts</strong>
-            </h3>
-            <h4 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-2 display-5">
-                Contacts Subtitle
-            </h4>
-        </div>
-        <div class="row justify-content-center mt-4">
-            <div class="card col-12 col-md-6">
-                <div class="card-wrapper">
-                    <div class="image-wrapper">
-                        <span class="mbr-iconfont socicon-persona socicon" style="color: rgb(228, 63, 63); fill: rgb(228, 63, 63);"></span>
-                    </div>
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-1 display-5">
-                            <strong>Phone</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">+964 7501000951</p>
-                    </div>
-                </div>
-                <div class="card-wrapper">
-                    <div class="image-wrapper">
-                        <span class="mbr-iconfont socicon-mail socicon" style="color: rgb(228, 63, 63); fill: rgb(228, 63, 63);"></span>
-                    </div>
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-1 display-5">
-                            <strong>Email</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <a href="mailto:info@site.com" class="text-secondary">info@savingapp.co</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
-                    </div>
-                </div>
-            </div>
-            <div class="map-wrapper col-12 col-md-6">
-                <div class="google-map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d804.8191174087776!2d44.02637163233273!3d36.20847451731242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sar!2siq!4v1619532419942!5m2!1sar!2siq" style="border:0;" allowfullscreen="" loading="lazy"></iframe></iframe></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="form4 cid-stWjB7nxB5 mbr-fullscreen" id="form4-v">
-
-    
-
-    
-
-    <div class="container">
-        <div class="row content-wrapper justify-content-center">
-            <div class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
-                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="QHRQwVquKlVIYeFrStdAL2RN6aRuu1o+X3FKCuzIJuqdigdi0K3/GyNvIJkOkvzjGYJV9A+dJDTGB+9QtWAjRNrVhgl+9TJxnT7srVVZ2tBiGV8F5EcUEHStsD+qArfT">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling
-                            out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">Oops...! some
-                            problem!</div>
-                    </div>
-                    <div class="dragArea row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <h1 class="mbr-section-title mb-4 display-2">
-                                <strong>Contact Us</strong>
-                            </h1>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                                Fill this form and we'll get back to you soon.</p>
-                        </div>
-                        <div class="col-lg-12 col-md col-12 form-group" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form4-v">
-                        </div>
-                        <div class="col-lg-12 col-md col-12 form-group" data-for="email">
-                            <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-form4-v">
-                        </div>
-                        <div class="col-12 col-md-auto mbr-section-btn">
-                            <button type="submit" class="btn btn-secondary display-4">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-7 offset-lg-1 col-12">
-                <div class="image-wrapper">
-                    <img class="w-100" src="assets/images/sq3.jpg" alt="Mobirise">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="share3 cid-stWjFYnwVf" id="share3-w">
-    
-     
-    
-    
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-12">
-                <h3 class="mbr-section-title align-center mb-3 mbr-fonts-style display-2">
-                    <strong>Follow Us!</strong>
-                </h3>
-                <div class="social-list align-center">
-                   
-                    <a class="iconfont-wrapper bg-facebook m-2 " target="_blank" href="#">
-                            <span class="socicon-facebook socicon"></span>
-                        </a>
-                        <a class="iconfont-wrapper bg-twitter m-2" href="#" target="_blank">
-                            <span class="socicon-twitter socicon"></span>
-                        </a>
-                        <a class="iconfont-wrapper bg-instagram m-2" href="#" target="_blank">
-                            <span class="socicon-instagram socicon"></span>
-                        </a>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="footer7 cid-stWnujivOe" once="footers" id="footer7-11">
-
-    
-
-    
-
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
-            <div class="col-12">
-                <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                    © Copyright 2021 Saving App - All Rights Reserved
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<section style="display: none; background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="#" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/k" style="color:#aaa;"></a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
-  
-  
- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"
-    ><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
-    <input name="animation" type="hidden">
-  </body>
 </html>
