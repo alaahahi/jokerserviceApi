@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
-use App\Models\Apartment;
+use App\Models\Employee;
 
 class Apartments extends BaseDimmer
 {
@@ -23,18 +23,18 @@ class Apartments extends BaseDimmer
      */
     public function run()
     {
-        $count = Apartment::count();
-        $string =  "Apartments";//trans_choice('voyager::dimmer.user', $count);
+        $count = Employee::count();
+        $string =  "Employee";//trans_choice('voyager::dimmer.user', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-home',
             'title'  => "{$count} {$string}",
             'text'   =>"Apartments" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
-                'text' => "Apartments",
-                'link' => route('voyager.apartment.index'),
+                'text' => "Employee",
+                'link' => route('voyager.employee.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));
     }
 

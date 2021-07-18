@@ -144,7 +144,9 @@ return [
         ],
 
         'widgets' => [
-
+            'App\\Widgets\\Projects',
+            'App\\Widgets\\Towers',
+            'App\\Widgets\\Apartments'
         ],
 
     ],
@@ -256,10 +258,8 @@ return [
                 'height'=> 500
            ],
        ]*/
+       
     ],
-    'widgets' => [
-        'App\\Widgets\\Projects',
-        'App\\Widgets\\Towers',
-        'App\\Widgets\\Apartments'
-    ],
+    
+
 ];

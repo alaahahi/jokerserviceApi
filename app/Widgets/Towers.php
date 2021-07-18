@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
-use App\Models\Tower;
+use App\Models\Order;
 
 class Towers extends BaseDimmer
 {
@@ -23,18 +23,18 @@ class Towers extends BaseDimmer
      */
     public function run()
     {
-        $count = Tower::count();
-        $string =  "Towers";//trans_choice('voyager::dimmer.user', $count);
+        $count = Order::count();
+        $string =  "Orders";//trans_choice('voyager::dimmer.user', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-lighthouse',
             'title'  => "{$count} {$string}",
-            'text'   =>"Tower" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   =>"Order" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
-                'text' => "Tower",
-                'link' => route('voyager.tower.index'),
+                'text' => "Order",
+                'link' => route('voyager.order.index'),
             ],
-            'image' => 'Towers.jpg',//voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
         ]));
     }
 
