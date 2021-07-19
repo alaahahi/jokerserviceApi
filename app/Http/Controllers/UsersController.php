@@ -33,9 +33,15 @@ class UsersController extends Controller
     }
     public function employees_accept(Request $request)
     { 
-        $data = DB::table('employee')
-        ->select("*")
-        ->get();
+        $data = Employee::all();
+        foreach ($data as $employee ){
+            $employee->setAttribute('experience',
+             DB::table('sub_category')
+            ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+            ->whereIn('sub_category.id',array_filter( explode(",", str_replace("'", "", $employee->experience) )) )
+            ->where('sub_category_translation.lang', '=','en')
+            ->get()
+         );}
         //return response()->json($data);
         if ($request->ajax()) 
         {
