@@ -597,4 +597,9 @@ class CustomerController extends Controller
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'User Not found ',])->setStatusCode(400);
     }
+    public function slider(Request $request )
+    { 
+        $slider = DB::table('slider')->get();
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $slider])->setStatusCode(200);
+    }
 }

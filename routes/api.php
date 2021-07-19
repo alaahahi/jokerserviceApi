@@ -34,3 +34,4 @@ Route::get('app_page/{title?}/{lang?}', [CustomerController::class, 'app_page'])
 Route::post('update_location/{moblie?}', [CustomerController::class, 'update_location']);
 Route::post('update_token/{moblie?}', [CustomerController::class, 'update_token']);
 Route::get('notification/{moblie?}', [CustomerController::class, 'notification']);
+Route::get('slider/', [CustomerController::class, 'slider']);
