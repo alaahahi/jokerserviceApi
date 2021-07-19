@@ -52,7 +52,7 @@ class CustomerController extends Controller
         ->where('sub_category_translation.lang', '=',$lang)
         ->select('sub_category.category_id')->groupBy('category_id')
         ->get();
-        $sub_categories_employee = Employee::Where('experience', 'like', '%' ."'".$subCategoriesId."'". '%')->get();
+        $sub_categories_employee = Employee::Where('experience', 'like', '%' ."'".$subCategoriesId."'". '%')->Where('is_active', '=',1)->get();
             foreach ($sub_categories_employee as $employee ){
             $employee->setAttribute('experience',$user_info );
             $employee->setAttribute('categories',$categories );
