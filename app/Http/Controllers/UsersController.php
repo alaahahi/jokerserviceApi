@@ -120,12 +120,14 @@ class UsersController extends Controller
     }
     public function employees_pay(Request $request,$order_id)
     { 
+        $userId =  Auth::user()->id;
         $date = date('Y-m-d h:i');
-        $un_block_employee = 
-        DB::table('order')
-        ->where('order.id', '=', $order_id)
-        ->update(['updated_at' => $date,'payment'=>0]);
-        if(!empty($un_block_employee) )
+        $order1= DB::table('order')->where('order.id', '=', $order_id);
+        $order= $order1->select('*')->first();
+        DB::table('payment_details')->insertGetId(array('client_id' =>$order->client_id,'employee_id'=>  $order->employee_id
+        ,'order_id'=>$order_id,'user_id'=>$userId,'date'=>$date,'price'=>$order->payment,'created_at'=> $date));
+        $order1->update(['updated_at' => $date,'payment'=>1]);
+        if(!empty($order) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
         else
         return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
