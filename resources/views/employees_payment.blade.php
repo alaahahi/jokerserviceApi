@@ -53,31 +53,16 @@ var table = $('.data-table').DataTable({
         {data: 'action', name: 'action'},
     ]
 });
-  $('body').on('click', '.approval', function () {
-      $(this).attr('disabled', true);      
-      var Item_id = $(this).data('id');
-      $.get("{{ route('approval_employee') }}/"+Item_id ).done(function() {
-        $('#'+Item_id).attr('disabled', false); 
-        $('#'+Item_id).css("background-color", "#2ecc71").text("Done Approval");
-});
    });
-   $('body').on('click', '.rejection', function () {
+   $('body').on('click', '.pay', function () {
       $(this).attr('disabled', true);      
       var Item_id = $(this).data('id');
-      $.get("{{ route('block_employee') }}/"+Item_id ).done(function() {
-        $('#'+Item_id).attr('disabled', false); 
-        $('#'+Item_id).css("background-color", "#2ecc71").text("Done Rejection");
-});
-   });
-   $('body').on('click', '.un_block', function () {
-      $(this).attr('disabled', true);      
-      var Item_id = $(this).data('id');
-      $.get("{{ route('un_block_employee') }}/"+Item_id ).done(function() {
+      $.get("{{ route('employees_pay') }}/"+Item_id ).done(function() {
         $('#'+Item_id).attr('disabled', false); 
         $('#'+Item_id).css("background-color", "#2ecc71").text("Done"); 
 });
    });
 
-  });
+
 </script>
   @endsection

@@ -19,13 +19,14 @@ class UsersController extends Controller
     { 
         $data = DB::table('employee')
         ->join('order', 'order.employee_id', '=', 'employee.id')
+        ->where('order.payment', '!=',0)
         ->select("*")
         ->get();
         //return response()->json($data);
         if ($request->ajax()) 
         {
          return Datatables::of($data)->addColumn('action', function ($data) {
-            return '<a  href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right edit"><i class="voyager-wallet"></i>Pay</a>';
+            return '<a  href="javascript:void(0)" data-toggle="tooltip" id="'.$data->id.'" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right pay"><i class="voyager-wallet"></i>Pay</a>';
     })
         ->rawColumns(['action'])->make(true);
         }
@@ -112,6 +113,18 @@ class UsersController extends Controller
         DB::table('employee')
         ->where('employee.id', '=', $employee_id )
         ->update(['updated_at' => $date,'is_blocked'=>0,'is_active'=>1]);
+        if(!empty($un_block_employee) )
+        return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'No order accept'])->setStatusCode(400);
+    }
+    public function employees_pay(Request $request,$order_id)
+    { 
+        $date = date('Y-m-d h:i');
+        $un_block_employee = 
+        DB::table('order')
+        ->where('order.id', '=', $order_id)
+        ->update(['updated_at' => $date,'payment'=>0]);
         if(!empty($un_block_employee) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
         else
