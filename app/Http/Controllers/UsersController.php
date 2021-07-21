@@ -39,8 +39,9 @@ class UsersController extends Controller
         $data = DB::table('payment_details')
         ->join('employee', 'employee.id', '=', 'payment_details.employee_id')
         ->join('order', 'order.id', '=', 'payment_details.order_id')
-        ->select('payment_details.employee_id as id','employee.name', DB::raw('SUM(payment_details.price) as total'))
-        ->groupBy('payment_details.employee_id','employee.name')
+        ->join('users', 'users.id', '=', 'payment_details.user_id')
+        ->select('payment_details.employee_id as id','users.name as admin','employee.name', DB::raw('SUM(payment_details.price) as total'))
+        ->groupBy('payment_details.employee_id','employee.name','users.name')
         ->get();
         //return response()->json($data);
         if ($request->ajax()) 

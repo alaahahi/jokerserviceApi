@@ -31,6 +31,7 @@
                 <thead>
                     <tr>
                         <th>Employee</th>
+                        <th>Admin</th>
                         <th>Total</th>
                 </thead>
                 <tbody>
@@ -39,10 +40,10 @@
             </div>
 </div>
 </div>
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 
 $(function () {
@@ -64,6 +65,7 @@ var table1 = $('.data-table1').DataTable({
     ajax: "{{ route('employees_paymented') }}",
     columns: [
         {data: 'name', name: 'name'},
+        {data: 'admin', name: 'admin'},
         {data: 'total', name: 'total'},
     ]
 });
