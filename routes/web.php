@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('employees_accept', [UsersController::class, 'employees_accept'])->name('employees_accept');
 Route::get('employees_payment', [UsersController::class, 'employees_payment'])->name('employees_payment');
+Route::get('employees_paymented', [UsersController::class, 'employees_paymented'])->name('employees_paymented');
 Route::get('employees_pay/{order?}', [UsersController::class, 'employees_pay'])->name('employees_pay');
 
 Route::get('approval_employee/{employee_id?}', [UsersController::class, 'approval_employee'])->name('approval_employee');

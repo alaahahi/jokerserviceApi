@@ -19,14 +19,34 @@ class UsersController extends Controller
     { 
         $data = DB::table('employee')
         ->join('order', 'order.employee_id', '=', 'employee.id')
+        ->join('client', 'client.id', '=', 'order.client_id')
         ->where('order.payment', '!=',0)
-        ->select("*")
+        ->where('order.accepted_date', '!=',null)
+        ->select("order.id","order.payment","order.date","order.created_at","client.name as name_client","employee.name as name_employee","client.phone as phone_client","employee.phone as phone_employee")
         ->get();
         //return response()->json($data);
         if ($request->ajax()) 
         {
          return Datatables::of($data)->addColumn('action', function ($data) {
-            return '<a  href="javascript:void(0)" data-toggle="tooltip" id="'.$data->id.'" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right pay"><i class="voyager-wallet"></i>Pay</a>';
+            return '<a  href="javascript:void(0)" data-toggle="tooltip" id="'.$data->id.'" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right pay">Pay</a>';
+    })
+        ->rawColumns(['action'])->make(true);
+        }
+        return view('employees_payment',compact('data'));
+    }
+    public function employees_paymented(Request $request)
+    { 
+        $data = DB::table('payment_details')
+        ->join('employee', 'employee.id', '=', 'payment_details.employee_id')
+        ->join('order', 'order.id', '=', 'payment_details.order_id')
+        ->select('payment_details.employee_id as id','employee.name', DB::raw('SUM(payment_details.price) as total'))
+        ->groupBy('payment_details.employee_id','employee.name')
+        ->get();
+        //return response()->json($data);
+        if ($request->ajax()) 
+        {
+         return Datatables::of($data)->addColumn('action', function ($data) {
+            return '<a  href="javascript:void(0)" data-toggle="tooltip" id="'.$data->id.'" data-id="'.$data->id.'" class="btn btn-sm btn-primary pull-right pay">Pay</a>';
     })
         ->rawColumns(['action'])->make(true);
         }
@@ -126,7 +146,7 @@ class UsersController extends Controller
         $order= $order1->select('*')->first();
         DB::table('payment_details')->insertGetId(array('client_id' =>$order->client_id,'employee_id'=>  $order->employee_id
         ,'order_id'=>$order_id,'user_id'=>$userId,'date'=>$date,'price'=>$order->payment,'created_at'=> $date));
-        $order1->update(['updated_at' => $date,'payment'=>1]);
+        $order1->update(['updated_at' => $date,'payment'=>0]);
         if(!empty($order) )
         return response()->json(['status'=>true,'code'=>200,'message'=>'Successfully accept employee'])->setStatusCode(200);
         else
