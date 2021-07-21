@@ -1,8 +1,5 @@
 @extends('voyager::master')
-
-
 @section('content')
-
 <h1></h1>
 <div class="container">
 <div class="row">
@@ -23,7 +20,6 @@
                 <tbody>
                 </tbody>
             </table>
-            </div>
 </div>
 <h3 class="text-center">Total Order Pay</h3>
 <div class="col-md-12">
@@ -37,17 +33,15 @@
                 <tbody>
                 </tbody>
             </table>
-            </div>
-</div>
+  </div>
+ </div>
 </div>
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.js') }}"></script>
 <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
 
 <script type="text/javascript">
-
 $(function () {
-
 var table = $('.data-table').DataTable({
     ajax: "{{ route('employees_payment') }}",
     columns: [
@@ -81,7 +75,5 @@ var table1 = $('.data-table1').DataTable({
 
 });
    });
-
-
 </script>
-  @endsection
+@endsection
