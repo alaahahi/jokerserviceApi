@@ -29,12 +29,12 @@ class Apartments extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-home',
             'title'  => "{$count} {$string}",
-            'text'   =>"Apartments" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   =>"Employee Registered so far " ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "Employee",
                 'link' => route('voyager.employee.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' =>   'asset/img/3.jpg',// voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));
     }
 

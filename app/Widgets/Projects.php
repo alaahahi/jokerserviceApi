@@ -29,12 +29,12 @@ class Projects extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-group',
             'title'  => "{$count} {$string}",
-            'text'   =>"Projects" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   =>"Client Registered so far" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "Client",
                 'link' => route('voyager.client.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
+            'image' =>  'asset/img/1.jpg',// voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));
     }
 

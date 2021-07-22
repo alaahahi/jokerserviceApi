@@ -29,12 +29,12 @@ class Towers extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-lighthouse',
             'title'  => "{$count} {$string}",
-            'text'   =>"Order" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   =>"Order on System now" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "Order",
                 'link' => route('voyager.order.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
+            'image' =>  'asset/img/2.jpg',// voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));
     }
 
