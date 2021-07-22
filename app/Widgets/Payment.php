@@ -29,7 +29,7 @@ class Payment extends BaseDimmer
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-treasure',
             'title'  => "{$count} {$string}",
-            'text'   =>"Payment" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text'   =>"Order is Payment" ,//__('voyager::dimmer.user_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => "Payment",
                 'link' => route('employees_payment'),
