@@ -146,7 +146,9 @@ return [
         'widgets' => [
             'App\\Widgets\\Projects',
             'App\\Widgets\\Towers',
-            'App\\Widgets\\Apartments'
+            'App\\Widgets\\Apartments',
+            'App\\Widgets\\Payment',
+            'App\\Widgets\\Paymentneed'
         ],
 
     ],
