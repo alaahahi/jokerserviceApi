@@ -78,7 +78,7 @@
 						<div class="buttons dark flex-row d-flex">
 							<i class="fa fa-android" aria-hidden="true"></i>
 							<div class="desc">
-								<a href="#">
+								<a href="https://play.google.com/store/apps/details?id=com.intellijapp.jokerService">
 									<p>
 										<span>Available</span> <br>
 										on Play Store
