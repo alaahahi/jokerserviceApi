@@ -356,7 +356,7 @@ class CustomerController extends Controller
         ->where('order.id', '=', $orderId )->first()->employee_id;
         if(!empty($client_order_accept) )
         {
-            $avg= DB::table('order')
+            $avg= DB::table('order')->where('order.rate', '=',0)
             ->where('order.employee_id', '=', $employee_id )->avg('rate');
             DB::table('employee')
             ->where('employee.id', '=', $employee_id )
