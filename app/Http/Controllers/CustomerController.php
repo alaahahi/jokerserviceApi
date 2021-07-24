@@ -607,4 +607,18 @@ class CustomerController extends Controller
         $slider = DB::table('slider')->get();
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $slider])->setStatusCode(200);
     }
+    public function categories_sub_categories_array(Request $request ,$lang="en")
+    { 
+        $categories_sub_categories = 
+        DB::table('category')
+        ->join('sub_category', 'sub_category.category_id', '=', 'category.id')
+        ->join('sub_category_translation', 'sub_category_translation.sub_category_Id', '=', 'sub_category.id')
+        ->where('sub_category.visible', '=', '1' )
+        ->whereIn('sub_category.category_id',explode(",", $request->categories_id ))
+        ->where('sub_category_translation.lang', '=', $lang )
+        ->select('*')
+        ->get();
+        return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $categories_sub_categories,])->setStatusCode(200);
+        
+    }
 }
