@@ -621,4 +621,27 @@ class CustomerController extends Controller
         return response()->json(['status'=>true,'code'=>200,'message'=>'successfully','data' => $categories_sub_categories,])->setStatusCode(200);
         
     }
+    public function employee_is_block(Request $request,$moblie)
+    { 
+        $employeeId = DB::table('employee')
+        ->where('employee.phone', '=', $moblie )->select('id','is_blocked')->first();
+        $clientId = DB::table('client')
+        ->where('client.phone', '=', $moblie )->select('id','is_blocked')->first();
+        if(!empty($clientId))
+        {
+            if($clientId->is_blocked)
+                return response()->json(['status'=>true,'code'=>200,'message'=>'client is Block','data' => $clientId,])->setStatusCode(200);
+            else
+                return response()->json(['status'=>true,'code'=>200,'message'=>'client is Active','data' => $clientId,])->setStatusCode(200);
+        }
+        if(!empty($employeeId))
+        {
+            if($employeeId->is_blocked)
+                return response()->json(['status'=>true,'code'=>200,'message'=>'employee  is Block','data' => $employeeId])->setStatusCode(200);
+            else 
+                return response()->json(['status'=>true,'code'=>200,'message'=>'employee  is active','data' => $employeeId])->setStatusCode(200);
+        }
+        else
+        return response()->json(['status'=>false,'code'=>400,'message'=>'User Not Found'])->setStatusCode(200);    
+    }
 }

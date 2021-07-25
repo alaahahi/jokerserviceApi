@@ -36,3 +36,4 @@ Route::post('update_token/{moblie?}', [CustomerController::class, 'update_token'
 Route::get('notification/{moblie?}', [CustomerController::class, 'notification']);
 Route::get('slider/', [CustomerController::class, 'slider']);
 Route::post('categories_sub_categories_array/{lang?}', [CustomerController::class, 'categories_sub_categories_array']);
+Route::get('employee_is_block/{moblie?}', [CustomerController::class, 'employee_is_block']);
