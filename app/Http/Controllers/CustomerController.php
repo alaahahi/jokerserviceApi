@@ -356,13 +356,14 @@ class CustomerController extends Controller
         ->where('order.id', '=', $orderId )->first()->employee_id;
         if(!empty($client_order_accept) )
         {
-            $avg= DB::table('order')->where('order.rate', '=',0)
+            $avg= DB::table('order')->where('order.status', '=','3')
             ->where('order.employee_id', '=', $employee_id )->avg('rate');
             DB::table('employee')
             ->where('employee.id', '=', $employee_id )
             ->update(['rate'=> $avg]);
+            //return response()->json($avg);
             $firebaseToken = Employee::whereNotNull('push_notification_token')->where('employee.id', '=', $employee_id )->pluck('push_notification_token')->all();
-            //return response()->json($firebaseToken);
+
             $data = [
                 "registration_ids" => $firebaseToken,
                 "notification" => [
