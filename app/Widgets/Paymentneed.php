@@ -23,7 +23,7 @@ class Paymentneed extends BaseDimmer
      */
     public function run()
     {
-        $count = Order::where('payment','!=', 0)->where('status','=', 1)->count();
+        $count = Order::where('payment','!=', 0)->count();
         $string =  "Order";//trans_choice('voyager::dimmer.user', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
