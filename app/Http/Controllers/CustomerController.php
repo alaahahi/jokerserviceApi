@@ -125,7 +125,7 @@ class CustomerController extends Controller
         $employeeId = DB::table('employee')
         ->where('employee.phone', '=', $moblie )->select('id')->first();
         $request->validate([
-            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8048',
           ]);
           if ($request->file('file')) {
             $imagePath = $request->file('file');
@@ -218,7 +218,7 @@ class CustomerController extends Controller
         $monthName = date('F');
         $year = date('Y');
         $request->validate([
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:8048',
           ]);
 
           if ($request->file('image')) {
