@@ -112,6 +112,7 @@ class CustomerController extends Controller
     }
     public function add_employee_info(Request $request,$moblie)
     { 
+        $date = date('Y-m-d h:i');
         $clientId = DB::table('client')
         ->where('client.phone', '=', $moblie )->select('id')->first();
         if(!empty($clientId))
@@ -151,7 +152,7 @@ class CustomerController extends Controller
             ->where('employee.id', '=', $employeeId->id )
             ->update(['name' => $name,'birthdate'=>$birthdate,'sex'=>$sex,'experience'=>$experience 
             ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'years_experience'=>$years_experience,'languages'=>$languages ,'id_number'=>$id_number
-            ,'name_ar'=>$name_ar,'push_notification_token'=>$push_notification_token
+            ,'name_ar'=>$name_ar,'push_notification_token'=>$push_notification_token,'updated_at'=> $date
         ]);
             return response()->json(['status'=>true,'code'=>200,'message'=>'Update employee info'])->setStatusCode(201);    
         }
@@ -159,7 +160,7 @@ class CustomerController extends Controller
             DB::table('employee')->insertGetId(array('phone' => $moblie,'name'=>$request->name,'birthdate'=>$request->birthdate
             ,'sex'=>$request->sex,'years_experience'=>$request->years_experience,'languages'=>$request->languages
             ,'photo'=>'employee/'.$monthName.$year.'/'.$imageName,'experience'=>$request->experience,'id_number'=>$request->id_number,
-            'name_ar'=>$request->name_ar,'push_notification_token'=>$request->push_notification_token
+            'name_ar'=>$request->name_ar,'push_notification_token'=>$request->push_notification_token,'created_at'=> $date
             ));
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added employee info'])->setStatusCode(201);    
     }
