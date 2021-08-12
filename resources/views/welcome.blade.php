@@ -67,7 +67,7 @@
 						<div class="buttons flex-row d-flex">
 							<i class="fa fa-apple" aria-hidden="true"></i>
 							<div class="desc">
-								<a href="#">
+								<a href="https://apps.apple.com/us/app/joker-service-general/id1577181078">
 									<p>
 										<span>Available</span> <br>
 										on App Store
