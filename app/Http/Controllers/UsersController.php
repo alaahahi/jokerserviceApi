@@ -74,8 +74,8 @@ class UsersController extends Controller
     public function approval_employee(Request $request,$employee_id)
     { 
         $date = date('Y-m-d h:i');
-        $title="Employee Approval Account";
-        $body="Employee Approval Account Successfully";
+        $title="الموافقة على طلب التسجيل";
+        $body="تم الموافقة على طلب التسجيل";
         $approval_employee = 
         DB::table('employee')
         ->where('employee.id', '=', $employee_id )

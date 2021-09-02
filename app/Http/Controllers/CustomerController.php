@@ -212,8 +212,7 @@ class CustomerController extends Controller
     }
     public function add_order(Request $request,$clientId,$sub_categories_id,$employeeId)
     { 
-        $title="Order Added";
-        $body="The Order Are In Status Pendding Successfully";
+
         $imageName ="default.png";
         $date = date('Y-m-d h:i');
         $monthName = date('F');
@@ -232,6 +231,13 @@ class CustomerController extends Controller
         {
             $firebaseToken = Employee::whereNotNull('push_notification_token')->where('employee.id', '=', $employeeId )->pluck('push_notification_token')->all();
             //return response()->json($firebaseToken);
+            $orderid=DB::table('order')->insertGetId(array('client_id' =>$clientId,'employee_id'=>  $employeeId,'subcategory_id'=>$sub_categories_id
+            ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
+            ,'date'=>$request->date,'details'=>$request->details,'created_at'=> $date
+            ));
+            $title="$orderid إضافة الطلب رقم";
+            $body="تم إضافة الطلب  ويتم الأن المراجعة من قبل الموظف";
+            
             $data = [
                 "registration_ids" => $firebaseToken,
                 "notification" => [
@@ -260,10 +266,7 @@ class CustomerController extends Controller
 
             DB::table('notification')->insert(array('employee_id'=>$employeeId,'title' =>  $title,'body'=>$body,'created_at'=> $date,'time'=>$date));
 
-            DB::table('order')->insertGetId(array('client_id' =>$clientId,'employee_id'=>  $employeeId,'subcategory_id'=>$sub_categories_id
-            ,'image'=>'order/'.$monthName.$year.'/'.$imageName,'location_lng'=>$request->location_lng,'location_lat'=>$request->location_lat
-            ,'date'=>$request->date,'details'=>$request->details,'created_at'=> $date
-            ));
+ 
             return response()->json(['status'=>true,'code'=>200,'message'=>'Added order info'])->setStatusCode(201);        
         }
             return response()->json(['status'=>false,'code'=>400,'message'=>'Not Found'])->setStatusCode(400);    
@@ -299,9 +302,9 @@ class CustomerController extends Controller
     }
     public function employee_order_accept(Request $request ,$orderId)
     { 
-        $title="Order Accept";
-        $body="The Order Are In Status Accept Successfully";
-        
+        $title="قبول الطلب";
+        $body="$orderId تم الموافة على الطلب رقم ";
+        //return response()->json(  $body);
         $date = date('Y-m-d h:i');
         $employee_order_accept = 
         DB::table('order')
@@ -346,8 +349,8 @@ class CustomerController extends Controller
     }
     public function client_order_finish(Request $request ,$orderId)
     { 
-        $title="Order Finish";
-        $body="The Order Are In Status Finish Successfully";
+        $title="$orderId إنهاء الطلب رقم";
+        $body="تم الأنتهاء من الطلب";
         $date = date('Y-m-d h:i');
         $client_order_accept = 
         DB::table('order')
@@ -399,8 +402,9 @@ class CustomerController extends Controller
     }
     public function employee_order_reject(Request $request ,$orderId)
     { 
-        $title="Order Reject";
-        $body="Sorrt,The Order Are In Status Reject";
+        $title="تم رفض الطلب رقم $orderId";
+        $body="نأسف تم رفض الطلب يرحى إعادة المحاولة";
+        //return response()->json(  $title);
         $date = date('Y-m-d h:i');
         $employee_order_reject = 
         DB::table('order')
